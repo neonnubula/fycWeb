@@ -119,8 +119,8 @@
     <div id="options-sales" class="page container">
       <h1>Sales Call</h1>
       <h2>Select Option</h2>
-      <a class="button" href="#checklist-sales-voicemail">Voicemail</a>
-      <a class="button" href="#checklist-sales-start">Start Call</a>
+      <a class="button" href="#checklist-sales-voicemail" onclick="resetCheckboxes()">Voicemail</a>
+      <a class="button" href="#checklist-sales-start" onclick="resetCheckboxes()">Start Call</a>
       <div class="navigation">
         <a class="button" href="#home">Back</a>
       </div>
@@ -141,8 +141,8 @@
         <label for="sv-task3" class="checklist-item">Timeframe</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-sales">Back</a>
-        <a class="button" href="#home">Home</a>
+        <a class="button" href="#options-sales" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
@@ -201,8 +201,8 @@
     <div id="options-reengagement" class="page container">
       <h1>Reengagement Call</h1>
       <h2>Select Option</h2>
-      <a class="button" href="#checklist-reengagement-voicemail">Voicemail</a>
-      <a class="button" href="#checklist-reengagement-start">Start Call</a>
+      <a class="button" href="#checklist-reengagement-voicemail" onclick="resetCheckboxes()">Voicemail</a>
+      <a class="button" href="#checklist-reengagement-start" onclick="resetCheckboxes()">Start Call</a>
       <div class="navigation">
         <a class="button" href="#home">Back</a>
       </div>
@@ -571,5 +571,25 @@
       </div>
     </div>
     
+    <script>
+      function resetCheckboxes() {
+        document.querySelectorAll('.toggle').forEach(function(cb) {
+          cb.checked = false;
+        });
+      }
+
+      // When the hash changes, if we're navigating to a checklist page,
+      // reset all checkboxes.
+      window.addEventListener('hashchange', function() {
+        if (location.hash.indexOf('checklist-') !== -1) {
+          resetCheckboxes();
+        }
+      });
+
+      // Also reset if the page loads with a checklist hash.
+      if (location.hash.indexOf('checklist-') !== -1) {
+        resetCheckboxes();
+      }
+    </script>
   </body>
 </html> 
