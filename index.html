@@ -106,29 +106,21 @@
       <h1>Finish Your Checklist</h1>
       <h2>Call Checklists</h2>
       <div>
-        <a class="button" href="#options-sales">Sales Call</a>
-        <a class="button" href="#options-reengagement">Reengagement Call</a>
-        <a class="button" href="#options-introduction">Introduction Call</a>
-        <a class="button" href="#options-followup">Followup Call</a>
-        <a class="button" href="#options-support">Support Call</a>
-        <a class="button" href="#options-at-risk">At-Risk Call</a>
-      </div>
-    </div>
-    
-    <!-- Options Page for Sales -->
-    <div id="options-sales" class="page container">
-      <h1>Sales Call</h1>
-      <h2>Select Option</h2>
-      <a class="button" href="#checklist-sales-voicemail" onclick="resetCheckboxes()">Voicemail</a>
-      <a class="button" href="#checklist-sales-start" onclick="resetCheckboxes()">Start Call</a>
-      <div class="navigation">
-        <a class="button" href="#home">Back</a>
+        <a class="button" href="#checklist-sales-start">Registration Call</a>
+        <a class="button" href="#checklist-reengagement-start">Reengagement Call</a>
+        <a class="button" href="#checklist-introduction-start">New Student Call</a>
+        <a class="button" href="#checklist-followup-start">CS Call</a>
+        <a class="button" href="#checklist-support-start">Support Call</a>
+        <a class="button" href="#checklist-at-risk-start">At-Risk Call</a>
+        <a class="button" href="#checklist-placement-start">Placement Call</a>
+        <a class="button" href="#checklist-welcome-start">Welcome Call</a>
       </div>
     </div>
     
     <!-- Checklist for Sales Voicemail -->
     <div id="checklist-sales-voicemail" class="page container">
-      <h1>Sales Call - Voicemail</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>Registration Call</h2>
       <div class="checklist">
         <!-- Voicemail checklist items (same for every call type) -->
         <input type="checkbox" id="sv-task1" class="toggle">
@@ -141,26 +133,24 @@
         <label for="sv-task3" class="checklist-item">Timeframe</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-sales" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
         <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
     <!-- Checklist for Sales Start Call -->
     <div id="checklist-sales-start" class="page container">
-      <h1>Sales Call - Start Call</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>Registration Call</h2>
       <div class="checklist">
         <input type="checkbox" id="ss-task1" class="toggle">
-        <label for="ss-task1" class="checklist-item">Rapport Question</label>
-        
-        <input type="checkbox" id="ss-task2" class="toggle">
-        <label for="ss-task2" class="checklist-item">2nd Open Question</label>
+        <label for="ss-task1" class="checklist-item">2x Open Questions</label>
         
         <input type="checkbox" id="ss-task3" class="toggle">
         <label for="ss-task3" class="checklist-item">Value Add Item</label>
         
         <input type="checkbox" id="ss-task4" class="toggle">
-        <label for="ss-task4" class="checklist-item">Great Ask for Sale</label>
+        <label for="ss-task4" class="checklist-item">Great Ask for Enrolment</label>
         
         <!-- Objection (with sub-checklist) -->
         <input type="checkbox" id="ss-task5" class="toggle objection">
@@ -180,37 +170,28 @@
         </div>
         
         <input type="checkbox" id="ss-task6" class="toggle">
-        <label for="ss-task6" class="checklist-item">Implement Sale Now or "How &amp; When"</label>
+        <label for="ss-task6" class="checklist-item">Enrol on phone or "How &amp; When"</label>
         
         <input type="checkbox" id="ss-task7" class="toggle">
-        <label for="ss-task7" class="checklist-item">Anything Else they want to Ask?</label>
+        <label for="ss-task7" class="checklist-item">Anything else?</label>
         
         <input type="checkbox" id="ss-task8" class="toggle">
         <label for="ss-task8" class="checklist-item">Summarise Call</label>
         
         <input type="checkbox" id="ss-task9" class="toggle">
-        <label for="ss-task9" class="checklist-item">Book Followup or Next Steps</label>
+        <label for="ss-task9" class="checklist-item">Book followup or next contact</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-sales">Back</a>
-        <a class="button" href="#home">Home</a>
-      </div>
-    </div>
-    
-    <!-- Options Page for Reengagement -->
-    <div id="options-reengagement" class="page container">
-      <h1>Reengagement Call</h1>
-      <h2>Select Option</h2>
-      <a class="button" href="#checklist-reengagement-voicemail" onclick="resetCheckboxes()">Voicemail</a>
-      <a class="button" href="#checklist-reengagement-start" onclick="resetCheckboxes()">Start Call</a>
-      <div class="navigation">
-        <a class="button" href="#home">Back</a>
+        <a class="button" href="#checklist-sales-voicemail" onclick="resetCheckboxes()">Voicemail</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
     <!-- Checklist for Reengagement Voicemail -->
     <div id="checklist-reengagement-voicemail" class="page container">
-      <h1>Reengagement - Voicemail</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>Reengagement Call</h2>
       <div class="checklist">
         <input type="checkbox" id="rv-task1" class="toggle">
         <label for="rv-task1" class="checklist-item">Purpose</label>
@@ -222,26 +203,24 @@
         <label for="rv-task3" class="checklist-item">Timeframe</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-reengagement">Back</a>
-        <a class="button" href="#home">Home</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
     <!-- Checklist for Reengagement Start Call (same as Sales Start Call) -->
     <div id="checklist-reengagement-start" class="page container">
-      <h1>Reengagement - Start Call</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>Reengagement Call</h2>
       <div class="checklist">
         <input type="checkbox" id="rs-task1" class="toggle">
-        <label for="rs-task1" class="checklist-item">Rapport Question</label>
-        
-        <input type="checkbox" id="rs-task2" class="toggle">
-        <label for="rs-task2" class="checklist-item">2nd Open Question</label>
+        <label for="rs-task1" class="checklist-item">2x Open Questions</label>
         
         <input type="checkbox" id="rs-task3" class="toggle">
         <label for="rs-task3" class="checklist-item">Value Add Item</label>
         
         <input type="checkbox" id="rs-task4" class="toggle">
-        <label for="rs-task4" class="checklist-item">Great Ask for Sale</label>
+        <label for="rs-task4" class="checklist-item">Great Ask for Enrolment</label>
         
         <input type="checkbox" id="rs-task5" class="toggle objection">
         <label for="rs-task5" class="checklist-item">Objection</label>
@@ -260,37 +239,28 @@
         </div>
         
         <input type="checkbox" id="rs-task6" class="toggle">
-        <label for="rs-task6" class="checklist-item">Implement Sale Now or "How &amp; When"</label>
+        <label for="rs-task6" class="checklist-item">Enrol on phone or "How &amp; When"</label>
         
         <input type="checkbox" id="rs-task7" class="toggle">
-        <label for="rs-task7" class="checklist-item">Anything Else they want to Ask?</label>
+        <label for="rs-task7" class="checklist-item">Anything else?</label>
         
         <input type="checkbox" id="rs-task8" class="toggle">
         <label for="rs-task8" class="checklist-item">Summarise Call</label>
         
         <input type="checkbox" id="rs-task9" class="toggle">
-        <label for="rs-task9" class="checklist-item">Book Followup or Next Steps</label>
+        <label for="rs-task9" class="checklist-item">Book followup or next contact</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-reengagement">Back</a>
-        <a class="button" href="#home">Home</a>
-      </div>
-    </div>
-    
-    <!-- Options Page for Introduction -->
-    <div id="options-introduction" class="page container">
-      <h1>Introduction Call</h1>
-      <h2>Select Option</h2>
-      <a class="button" href="#checklist-introduction-voicemail">Voicemail</a>
-      <a class="button" href="#checklist-introduction-start">Start Call</a>
-      <div class="navigation">
-        <a class="button" href="#home">Back</a>
+        <a class="button" href="#checklist-reengagement-voicemail" onclick="resetCheckboxes()">Voicemail</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
     <!-- Checklist for Introduction Voicemail -->
     <div id="checklist-introduction-voicemail" class="page container">
-      <h1>Introduction - Voicemail</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>New Student Call</h2>
       <div class="checklist">
         <input type="checkbox" id="iv-task1" class="toggle">
         <label for="iv-task1" class="checklist-item">Purpose</label>
@@ -302,29 +272,21 @@
         <label for="iv-task3" class="checklist-item">Timeframe</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-introduction">Back</a>
-        <a class="button" href="#home">Home</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
     <!-- Checklist for Introduction Start Call (no objection) -->
     <div id="checklist-introduction-start" class="page container">
-      <h1>Introduction - Start Call</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>New Student Call</h2>
       <div class="checklist">
         <input type="checkbox" id="is-task1" class="toggle">
-        <label for="is-task1" class="checklist-item">Rapport Question</label>
-        
-        <input type="checkbox" id="is-task2" class="toggle">
-        <label for="is-task2" class="checklist-item">2nd Open Question</label>
+        <label for="is-task1" class="checklist-item">2x Open Questions</label>
         
         <input type="checkbox" id="is-task3" class="toggle">
         <label for="is-task3" class="checklist-item">Value Add Item</label>
-        
-        <input type="checkbox" id="is-task4" class="toggle">
-        <label for="is-task4" class="checklist-item">Learn their Current Situation</label>
-        
-        <input type="checkbox" id="is-task5" class="toggle">
-        <label for="is-task5" class="checklist-item">Learn their Desired Situation</label>
         
         <input type="checkbox" id="is-task6" class="toggle">
         <label for="is-task6" class="checklist-item">Identify their Gap</label>
@@ -333,7 +295,7 @@
         <label for="is-task7" class="checklist-item">Additional Support Required?</label>
         
         <input type="checkbox" id="is-task8" class="toggle">
-        <label for="is-task8" class="checklist-item">Anything Else they want to Ask?</label>
+        <label for="is-task8" class="checklist-item">Anything else?</label>
         
         <input type="checkbox" id="is-task9" class="toggle">
         <label for="is-task9" class="checklist-item">Summarise Call</label>
@@ -342,25 +304,16 @@
         <label for="is-task10" class="checklist-item">Book Next Call or Followup Steps</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-introduction">Back</a>
-        <a class="button" href="#home">Home</a>
-      </div>
-    </div>
-    
-    <!-- Options Page for Followup -->
-    <div id="options-followup" class="page container">
-      <h1>Followup Call</h1>
-      <h2>Select Option</h2>
-      <a class="button" href="#checklist-followup-voicemail">Voicemail</a>
-      <a class="button" href="#checklist-followup-start">Start Call</a>
-      <div class="navigation">
-        <a class="button" href="#home">Back</a>
+        <a class="button" href="#checklist-introduction-voicemail" onclick="resetCheckboxes()">Voicemail</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
     <!-- Checklist for Followup Voicemail -->
     <div id="checklist-followup-voicemail" class="page container">
-      <h1>Followup - Voicemail</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>CS Call</h2>
       <div class="checklist">
         <input type="checkbox" id="fv-task1" class="toggle">
         <label for="fv-task1" class="checklist-item">Purpose</label>
@@ -372,20 +325,18 @@
         <label for="fv-task3" class="checklist-item">Timeframe</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-followup">Back</a>
-        <a class="button" href="#home">Home</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
-    <!-- Checklist for Followup Start Call (no objection) -->
+    <!-- Checklist for Followup Start Call -->
     <div id="checklist-followup-start" class="page container">
-      <h1>Followup - Start Call</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>CS Call</h2>
       <div class="checklist">
         <input type="checkbox" id="fs-task1" class="toggle">
-        <label for="fs-task1" class="checklist-item">Rapport Question</label>
-        
-        <input type="checkbox" id="fs-task2" class="toggle">
-        <label for="fs-task2" class="checklist-item">2nd Open Question</label>
+        <label for="fs-task1" class="checklist-item">2x Open Questions</label>
         
         <input type="checkbox" id="fs-task3" class="toggle">
         <label for="fs-task3" class="checklist-item">Value Add Item</label>
@@ -394,34 +345,25 @@
         <label for="fs-task4" class="checklist-item">Extra Support Required?</label>
         
         <input type="checkbox" id="fs-task5" class="toggle">
-        <label for="fs-task5" class="checklist-item">Anything they want to Ask?</label>
+        <label for="fs-task5" class="checklist-item">Anything else?</label>
         
         <input type="checkbox" id="fs-task6" class="toggle">
         <label for="fs-task6" class="checklist-item">Summarise Call</label>
         
         <input type="checkbox" id="fs-task7" class="toggle">
-        <label for="fs-task7" class="checklist-item">Book Followup or Next Steps</label>
+        <label for="fs-task7" class="checklist-item">Book followup or next contact</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-followup">Back</a>
-        <a class="button" href="#home">Home</a>
-      </div>
-    </div>
-    
-    <!-- Options Page for Support -->
-    <div id="options-support" class="page container">
-      <h1>Support Call</h1>
-      <h2>Select Option</h2>
-      <a class="button" href="#checklist-support-voicemail">Voicemail</a>
-      <a class="button" href="#checklist-support-start">Start Call</a>
-      <div class="navigation">
-        <a class="button" href="#home">Back</a>
+        <a class="button" href="#checklist-followup-voicemail" onclick="resetCheckboxes()">Voicemail</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
     <!-- Checklist for Support Voicemail -->
     <div id="checklist-support-voicemail" class="page container">
-      <h1>Support - Voicemail</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>Support Call</h2>
       <div class="checklist">
         <input type="checkbox" id="sv2-task1" class="toggle">
         <label for="sv2-task1" class="checklist-item">Purpose</label>
@@ -433,75 +375,15 @@
         <label for="sv2-task3" class="checklist-item">Timeframe</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-support">Back</a>
-        <a class="button" href="#home">Home</a>
-      </div>
-    </div>
-    
-    <!-- Checklist for Support Start Call (includes objection) -->
-    <div id="checklist-support-start" class="page container">
-      <h1>Support - Start Call</h1>
-      <div class="checklist">
-        <input type="checkbox" id="ss2-task1" class="toggle">
-        <label for="ss2-task1" class="checklist-item">Rapport Question</label>
-        
-        <input type="checkbox" id="ss2-task2" class="toggle">
-        <label for="ss2-task2" class="checklist-item">2nd Open Question</label>
-        
-        <input type="checkbox" id="ss2-task3" class="toggle">
-        <label for="ss2-task3" class="checklist-item">Followup on Support Given Previously</label>
-        
-        <input type="checkbox" id="ss2-task4" class="toggle">
-        <label for="ss2-task4" class="checklist-item">Value Add Item</label>
-        
-        <input type="checkbox" id="ss2-task5" class="toggle objection">
-        <label for="ss2-task5" class="checklist-item">Objection</label>
-        <div class="sub-checklist">
-          <input type="checkbox" id="ss2-ob-sub1" class="toggle">
-          <label for="ss2-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
-          
-          <input type="checkbox" id="ss2-ob-sub2" class="toggle">
-          <label for="ss2-ob-sub2" class="checklist-item">Clarify &amp; Question</label>
-          
-          <input type="checkbox" id="ss2-ob-sub3" class="toggle">
-          <label for="ss2-ob-sub3" class="checklist-item">Address the Objection</label>
-          
-          <input type="checkbox" id="ss2-ob-sub4" class="toggle">
-          <label for="ss2-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
-        </div>
-        
-        <input type="checkbox" id="ss2-task6" class="toggle">
-        <label for="ss2-task6" class="checklist-item">Further Support Required?</label>
-        
-        <input type="checkbox" id="ss2-task7" class="toggle">
-        <label for="ss2-task7" class="checklist-item">Anything Else they want to Ask?</label>
-        
-        <input type="checkbox" id="ss2-task8" class="toggle">
-        <label for="ss2-task8" class="checklist-item">Summarise Call</label>
-        
-        <input type="checkbox" id="ss2-task9" class="toggle">
-        <label for="ss2-task9" class="checklist-item">Book Followup or Next Steps</label>
-      </div>
-      <div class="navigation">
-        <a class="button" href="#options-support">Back</a>
-        <a class="button" href="#home">Home</a>
-      </div>
-    </div>
-    
-    <!-- Options Page for At-Risk -->
-    <div id="options-at-risk" class="page container">
-      <h1>At-Risk Call</h1>
-      <h2>Select Option</h2>
-      <a class="button" href="#checklist-at-risk-voicemail">Voicemail</a>
-      <a class="button" href="#checklist-at-risk-start">Start Call</a>
-      <div class="navigation">
-        <a class="button" href="#home">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
     <!-- Checklist for At-Risk Voicemail -->
     <div id="checklist-at-risk-voicemail" class="page container">
-      <h1>At-Risk - Voicemail</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>At-Risk Call</h2>
       <div class="checklist">
         <input type="checkbox" id="arv-task1" class="toggle">
         <label for="arv-task1" class="checklist-item">Purpose</label>
@@ -513,26 +395,27 @@
         <label for="arv-task3" class="checklist-item">Timeframe</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-at-risk">Back</a>
-        <a class="button" href="#home">Home</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
     <!-- Checklist for At-Risk Start Call (includes objection) -->
     <div id="checklist-at-risk-start" class="page container">
-      <h1>At-Risk - Start Call</h1>
+      <h1>Finish your Checklist</h1>
+      <h2>At-Risk Call</h2>
       <div class="checklist">
         <input type="checkbox" id="ars-task1" class="toggle">
-        <label for="ars-task1" class="checklist-item">Rapport Question</label>
+        <label for="ars-task1" class="checklist-item">2x Open Questions</label>
         
         <input type="checkbox" id="ars-task2" class="toggle">
-        <label for="ars-task2" class="checklist-item">2nd Open Question</label>
+        <label for="ars-task2" class="checklist-item">Uncover the Problem</label>
         
         <input type="checkbox" id="ars-task3" class="toggle">
-        <label for="ars-task3" class="checklist-item">Uncover the Problem</label>
+        <label for="ars-task3" class="checklist-item">Problem Solve</label>
         
         <input type="checkbox" id="ars-task4" class="toggle">
-        <label for="ars-task4" class="checklist-item">Problem Solve</label>
+        <label for="ars-task4" class="checklist-item">Connect course to Motivation</label>
         
         <input type="checkbox" id="ars-task5" class="toggle objection">
         <label for="ars-task5" class="checklist-item">Objection</label>
@@ -551,23 +434,124 @@
         </div>
         
         <input type="checkbox" id="ars-task6" class="toggle">
-        <label for="ars-task6" class="checklist-item">Connect course to Motivation/Their Gap</label>
-        
-        <input type="checkbox" id="ars-task7" class="toggle">
-        <label for="ars-task7" class="checklist-item">Great Ask for Sale</label>
+        <label for="ars-task6" class="checklist-item">Additional Support Required</label>
         
         <input type="checkbox" id="ars-task8" class="toggle">
-        <label for="ars-task8" class="checklist-item">Additional Support Required</label>
+        <label for="ars-task8" class="checklist-item">Summarise Call</label>
         
         <input type="checkbox" id="ars-task9" class="toggle">
-        <label for="ars-task9" class="checklist-item">Summarise Call</label>
-        
-        <input type="checkbox" id="ars-task10" class="toggle">
-        <label for="ars-task10" class="checklist-item">Book Followup or Next Steps</label>
+        <label for="ars-task9" class="checklist-item">Book followup or next contact</label>
       </div>
       <div class="navigation">
-        <a class="button" href="#options-at-risk">Back</a>
-        <a class="button" href="#home">Home</a>
+        <a class="button" href="#checklist-at-risk-voicemail" onclick="resetCheckboxes()">Voicemail</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
+      </div>
+    </div>
+    
+    <!-- Checklist for Welcome Call - Start Call -->
+    <div id="checklist-welcome-start" class="page container">
+      <h1>Finish your Checklist</h1>
+      <h2>Welcome Call</h2>
+      <div class="checklist">
+        <input type="checkbox" id="w-task1" class="toggle">
+        <label for="w-task1" class="checklist-item">2x Open Questions</label>
+        
+        <input type="checkbox" id="w-task2" class="toggle">
+        <label for="w-task2" class="checklist-item">Value Add Item</label>
+        
+        <input type="checkbox" id="w-task3" class="toggle">
+        <label for="w-task3" class="checklist-item">Additional Support Required</label>
+        
+        <input type="checkbox" id="w-task4" class="toggle">
+        <label for="w-task4" class="checklist-item">Anything else?</label>
+        
+        <input type="checkbox" id="w-task5" class="toggle">
+        <label for="w-task5" class="checklist-item">Summarise Call</label>
+        
+        <input type="checkbox" id="w-task6" class="toggle">
+        <label for="w-task6" class="checklist-item">Book followup or next contact</label>
+      </div>
+      <div class="navigation">
+        <a class="button" href="#checklist-welcome-voicemail" onclick="resetCheckboxes()">Voicemail</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
+      </div>
+    </div>
+    
+    <!-- Checklist for Placement Call - Start Call -->
+    <div id="checklist-placement-start" class="page container">
+      <h1>Finish your Checklist</h1>
+      <h2>Placement Call</h2>
+      <div class="checklist">
+        <input type="checkbox" id="ps-task1" class="toggle">
+        <label for="ps-task1" class="checklist-item">2x Open Questions</label>
+        
+        <input type="checkbox" id="ps-task2" class="toggle">
+        <label for="ps-task2" class="checklist-item">Value Add Item</label>
+        
+        <input type="checkbox" id="ps-task3" class="toggle">
+        <label for="ps-task3" class="checklist-item">Additional Support Required</label>
+        
+        <input type="checkbox" id="ps-task4" class="toggle">
+        <label for="ps-task4" class="checklist-item">Anything else?</label>
+        
+        <input type="checkbox" id="ps-task5" class="toggle">
+        <label for="ps-task5" class="checklist-item">Summarise Call</label>
+        
+        <input type="checkbox" id="ps-task6" class="toggle">
+        <label for="ps-task6" class="checklist-item">Book followup or next contact</label>
+      </div>
+      <div class="navigation">
+        <a class="button" href="#checklist-placement-voicemail" onclick="resetCheckboxes()">Voicemail</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
+      </div>
+    </div>
+    
+    <!-- Checklist for Support Start Call -->
+    <div id="checklist-support-start" class="page container">
+      <h1>Finish your Checklist</h1>
+      <h2>Support Call</h2>
+      <div class="checklist">
+        <input type="checkbox" id="sup-task1" class="toggle">
+        <label for="sup-task1" class="checklist-item">2x Open Questions</label>
+        
+        <input type="checkbox" id="sup-task2" class="toggle">
+        <label for="sup-task2" class="checklist-item">Previous Support?</label>
+        
+        <input type="checkbox" id="sup-task3" class="toggle">
+        <label for="sup-task3" class="checklist-item">Value Add Item</label>
+        
+        <input type="checkbox" id="sup-task4" class="toggle objection">
+        <label for="sup-task4" class="checklist-item">Objection</label>
+        <div class="sub-checklist">
+          <input type="checkbox" id="sup-ob-sub1" class="toggle">
+          <label for="sup-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
+          
+          <input type="checkbox" id="sup-ob-sub2" class="toggle">
+          <label for="sup-ob-sub2" class="checklist-item">Clarify &amp; Question</label>
+          
+          <input type="checkbox" id="sup-ob-sub3" class="toggle">
+          <label for="sup-ob-sub3" class="checklist-item">Address the Objection</label>
+          
+          <input type="checkbox" id="sup-ob-sub4" class="toggle">
+          <label for="sup-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
+        </div>
+        
+        <input type="checkbox" id="sup-task5" class="toggle">
+        <label for="sup-task5" class="checklist-item">New Additional Support Required?</label>
+        
+        <input type="checkbox" id="sup-task6" class="toggle">
+        <label for="sup-task6" class="checklist-item">Summarise Call</label>
+        
+        <input type="checkbox" id="sup-task7" class="toggle">
+        <label for="sup-task7" class="checklist-item">Book followup or next contact</label>
+      </div>
+      <div class="navigation">
+        <a class="button" href="#checklist-support-voicemail" onclick="resetCheckboxes()">Voicemail</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
+        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
       </div>
     </div>
     
