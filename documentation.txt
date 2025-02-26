@@ -1,0 +1,119 @@
+CALL CENTRE CHECKLIST – PROJECT DOCUMENTATION
+=============================================
+
+Overview
+--------
+The "Call Centre Checklist" application is a single-page web application designed to help call centre personnel quickly complete call-specific checklists. The application is completely built using HTML, CSS, and a small amount of JavaScript, making it easy to deploy on any static hosting platform without the need for a backend server. 
+
+This document serves as the "bible" of the application, providing a full specification and project summary in plain language. It is intended to be accessible to non-programmers as well as serving as detailed code documentation for developers.
+
+Project Purpose
+---------------
+The purpose of the application is to streamline the call process:
+• It allows users (call centre staff) to select a call type (for example, Registration Call, Reengagement Call, New Student Call, CS Call, Support Call, At-Risk Call, Placement Call, or Welcome Call) directly from the home page.
+• Once a call type is selected, the user is taken directly to the "Start Call" checklist page for that call type without any intermediary steps.
+• Each checklist is designed to be simple and intuitive: tasks are represented as buttons that change color (from blue to green) when clicked, indicating completion.
+• Some tasks, like the "Objection" task, include an expandable sub-checklist to guide the user through additional steps.
+• Navigation on each page (with Back, Home, and, where applicable, Voicemail buttons) allows the user to easily switch between checklist sections, with the guarantee that a new checklist always loads in a "fresh" state (i.e., no tasks are pre-marked as complete).
+
+Technologies & Structure
+-------------------------
+1. **HTML**  
+   - All content resides in a single HTML file, `index.html`.
+   - The file is divided into multiple "pages" using `<div>` elements with unique IDs (e.g., "home", "checklist-sales-start", "checklist-reengagement-start", etc.).
+   - Navigation between pages is managed by HTML anchor links that modify the URL fragment identifier (hash).
+
+2. **CSS**  
+   - CSS is used for styling the application and is embedded directly in the `<head>` section of `index.html`.
+   - A key design choice is the use of the `:target` pseudo-class:
+     • All "page" sections have a base style of `display: none;`.
+     • When a page's ID matches the URL hash (using `.page:target`), that page is displayed.
+   - Custom styling is applied to:
+     • Headings (`h1`, `h2`, etc.).
+     • Buttons and clickable checklist items.
+     • Checklist items are styled to appear as buttons that change background color when selected, visually indicating task completion. This is achieved using hidden checkbox inputs paired with their corresponding `<label>` elements.
+
+3. **JavaScript**  
+   - A minimal JavaScript function (`resetCheckboxes()`) ensures that every checklist loads with all tasks unmarked.
+   - This function is invoked via "onclick" events attached to navigation buttons and also on the `hashchange` event. The purpose is to reset the state by unchecking all checkboxes so that users always see a fresh checklist when navigating between pages.
+
+Application Flow
+----------------
+1. **Home Page**  
+   - The home page displays the main title "Finish Your Checklist" and a subtitle "Call Checklists."
+   - It features buttons for each call type (e.g., Registration Call, Reengagement Call, etc.).
+   - Clicking a button navigates directly to the "Start Call" checklist for the chosen call type.
+
+2. **Checklist Pages**  
+   Every checklist page follows a similar structure:
+   - **Header Section:**  
+     • An `<h1>` tag reading "Finish your Checklist."
+     • An `<h2>` tag indicating the specific call type (e.g., "Registration Call", "Support Call", etc.). 
+     • The design intentionally removes any "- Start Call" suffix for a cleaner presentation.
+   - **Checklist Section:**  
+     • Each task in the checklist is represented by a hidden `<input type="checkbox">` (with the class "toggle") and a corresponding `<label>` styled as a clickable button.
+     • When a user clicks a checklist item, the associated checkbox is checked and CSS styles the label to turn green.
+     • Consistency is maintained across pages: where applicable, tasks such as "2x Open Questions" (combining former "Rapport Question" and "2nd Open Question"), "Value Add Item", "Additional Support Required", "Anything else?", "Summarise Call", and "Book followup or next contact" are included.
+     • Specialized tasks like "Objection" include a sub-checklist that expands when the checkbox is toggled.
+   - **Navigation Section:**  
+     • Each checklist page includes a navigation bar with buttons.
+     • Where available, a "Voicemail" button allows users to switch to the alternative Voicemail checklist for that call type.
+     • "Back" and "Home" buttons are provided, and these buttons trigger `resetCheckboxes()` to ensure that upon return, checklists are fresh and ready to use.
+
+3. **Specific Call Type Customizations**  
+   - **Registration Call:**  
+     • Includes both Voicemail and Start Call checklists.
+     • Registration Start Call has tasks like "2x Open Questions", "Value Add Item", "Great Ask for Enrolment", "Objection" (with sub-checklist), "Enrol on phone or 'How & When'", "Anything else?", "Summarise Call", and "Book followup or next contact."
+   - **Reengagement, New Student (formerly Introduction), CS, At-Risk, Support, Placement, and Welcome Calls:**  
+     • Each of these call types has been carefully tailored, with minor variations in task names and orders to suit the specific call scenario.
+     • For example, the At-Risk Start Call checklist excludes "Great Ask for Enrolment" and modifies "Connect course to Motivation/Their Gap" to simply "Connect course to Motivation."
+   - **Support Call:**  
+     • A newly built Support Call Start Checklist includes tasks such as:
+         – 2x Open Questions  
+         – Previous Support?  
+         – Value Add Item  
+         – Objection (with an expandable sub-checklist)  
+         – New Additional Support Required?  
+         – Summarise Call  
+         – Book followup or next contact
+   - Each call type's navigation correctly points to its corresponding Voicemail checklist where applicable, ensuring a consistent user experience.
+
+Code Documentation
+------------------
+1. **HTML Structure:**  
+   - The document is divided into "pages" (each a `<div>` with class "page" and unique IDs).  
+   - The Home page (ID: "home") acts as the central navigation hub.  
+   - All checklist pages include three main sections: header, checklist, and navigation.
+
+2. **CSS:**  
+   - The `:target` pseudo-class is used to control which page is visible based on the current URL fragment.
+   - Classes such as "container", "checklist", "checklist-item", and "toggle" are defined to manage layout and styling.
+   - Special rules for the ".toggle" inputs ensure that when they are checked, the following sibling element (the checklist item label) gets a green background—signifying that the task is complete.
+   - For tasks like "Objection", an additional CSS rule ensures that the subsequent ".sub-checklist" is displayed when the checkbox with class "objection" is checked.
+
+3. **JavaScript:**  
+   - **resetCheckboxes Function:**  
+     • This function queries all elements with the class "toggle" (all hidden checkboxes) and sets their "checked" property to false.
+     • It is called when the user clicks navigation buttons and when the URL hash changes, thus ensuring that each checklist is reset before the user starts.
+
+Why This Approach?
+------------------
+- **Simplicity and Ease of Deployment:**  
+  The use of static HTML, CSS, and minimal JavaScript means there is no need for server-side logic. This greatly reduces maintenance and allows for easy deployment.
+  
+- **User-Friendly Interface:**  
+  The consistent design across pages, with large, clickable checklist items and clear navigation buttons, makes the application easy to use, even for non-technical users.
+  
+- **Scalability and Customization:**  
+  The separation of pages via divs and the simple toggling mechanism allows for future enhancements and additional call types without major restructuring.
+  
+- **Maintainability:**  
+  Using standard web technologies and a single-page design keeps the codebase lightweight and easy to understand for developers, ensuring long-term maintainability.
+
+Conclusion
+----------
+The "Call Centre Checklist" application presents a streamlined, user-friendly interface for call centre operations. By combining static HTML, well-structured CSS, and a small JavaScript function to manage state reset, the project delivers an efficient tool that meets the needs of call staff without unnecessary complexity.
+
+This documentation outlines the full specifications, design decisions, and functional elements of the application. It is intended as a comprehensive guide for users, non-programmers, and developers alike to understand the workings of the application and the rationale behind its design choices.
+
+End of Documentation. 
