@@ -70,6 +70,7 @@
         border-radius: 4px;
         text-align: left;
         cursor: pointer;
+        position: relative;
       }
       .checklist-item:focus {
         outline: none;
@@ -93,6 +94,9 @@
         display: none;
       }
       .toggle.objection:checked + .checklist-item + .sub-checklist {
+        display: block;
+      }
+      .toggle.objection:checked + .checklist-item + .example-text + .sub-checklist {
         display: block;
       }
       .sub-checklist .checklist-item {
@@ -184,6 +188,39 @@
         margin: 10px 0 20px 0;
         text-align: center;
       }
+      
+      /* Examples toggle and display */
+      .examples-toggle {
+        margin: 0 0 20px 0;
+        text-align: center;
+      }
+      
+      .example-text {
+        display: none;
+        margin: -5px 0 10px 0;
+        padding: 8px 12px;
+        background-color: #f5f5f5;
+        border-left: 3px solid #007AFF;
+        font-size: 0.9em;
+        color: #333;
+      }
+      
+      /* Show all examples when examples are visible */
+      .examples-visible .example-text {
+        display: block;
+      }
+      
+      /* Hide compliance examples when compliance is off */
+      .example-text.compliance-example {
+        display: none;
+      }
+      .compliance-visible .example-text.compliance-example {
+        display: none; /* Start hidden even when compliance is visible */
+      }
+      /* Only show compliance examples when both compliance is on AND examples are visible */
+      .compliance-visible.examples-visible .example-text.compliance-example {
+        display: block;
+      }
     </style>
   </head>
   
@@ -211,68 +248,6 @@
       </div>
     </div>
     
-    <!-- Checklist for Sales Voicemail -->
-    <div id="checklist-sales-voicemail" class="page container">
-      <h1>Finish your Checklist</h1>
-      <h2>Registration Call</h2>
-      <div class="checklist">
-        <input type="checkbox" id="ss-voicemail-toggle" class="toggle voicemail-toggle">
-        <label for="ss-voicemail-toggle" class="checklist-item">Voicemail</label>
-        <div class="voicemail-sub">
-          <input type="checkbox" id="ss-vm-task1" class="toggle">
-          <label for="ss-vm-task1" class="checklist-item">Purpose</label>
-          
-          <input type="checkbox" id="ss-vm-task2" class="toggle">
-          <label for="ss-vm-task2" class="checklist-item">Call to Action</label>
-          
-          <input type="checkbox" id="ss-vm-task3" class="toggle">
-          <label for="ss-vm-task3" class="checklist-item">Timeframe</label>
-        </div>
-        
-        <input type="checkbox" id="ss-task1" class="toggle">
-        <label for="ss-task1" class="checklist-item">2x Open Questions</label>
-        
-        <input type="checkbox" id="ss-task3" class="toggle">
-        <label for="ss-task3" class="checklist-item">Value Add Item</label>
-        
-        <input type="checkbox" id="ss-task4" class="toggle">
-        <label for="ss-task4" class="checklist-item">Great Ask for Enrolment</label>
-        
-        <!-- Objection (with sub-checklist) -->
-        <input type="checkbox" id="ss-task5" class="toggle objection">
-        <label for="ss-task5" class="checklist-item">Objection</label>
-        <div class="sub-checklist">
-          <input type="checkbox" id="ss-ob-sub1" class="toggle">
-          <label for="ss-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
-          
-          <input type="checkbox" id="ss-ob-sub2" class="toggle">
-          <label for="ss-ob-sub2" class="checklist-item">Clarify &amp; Question</label>
-          
-          <input type="checkbox" id="ss-ob-sub3" class="toggle">
-          <label for="ss-ob-sub3" class="checklist-item">Address the Objection</label>
-          
-          <input type="checkbox" id="ss-ob-sub4" class="toggle">
-          <label for="ss-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
-        </div>
-        
-        <input type="checkbox" id="ss-task6" class="toggle">
-        <label for="ss-task6" class="checklist-item">Enrol on phone or "How &amp; When"</label>
-        
-        <input type="checkbox" id="ss-task7" class="toggle">
-        <label for="ss-task7" class="checklist-item">Anything else?</label>
-        
-        <input type="checkbox" id="ss-task8" class="toggle">
-        <label for="ss-task8" class="checklist-item">Summarise Call</label>
-        
-        <input type="checkbox" id="ss-task9" class="toggle">
-        <label for="ss-task9" class="checklist-item">Book followup or next contact</label>
-      </div>
-      <div class="navigation">
-        <a class="button" href="#home" onclick="resetCheckboxes()">Back</a>
-        <a class="button" href="#home" onclick="resetCheckboxes()">Home</a>
-      </div>
-    </div>
-    
     <!-- Checklist for Sales Start Call -->
     <div id="checklist-sales-start" class="page container call-view-active">
       <h1>Finish your Checklist</h1>
@@ -281,47 +256,62 @@
         <button id="ss-call-btn" class="button active" onclick="toggleView('checklist-sales-start', 'call')">Call</button>
         <button id="ss-voicemail-btn" class="button" onclick="toggleView('checklist-sales-start', 'voicemail')">Voicemail</button>
       </div>
+      <div class="examples-toggle">
+        <button id="sales-examples-btn" class="button" onclick="toggleExamples('checklist-sales-start')">Show Examples</button>
+      </div>
       <div class="checklist main-checklist">
         <input type="checkbox" id="ss-compliance" class="toggle">
         <label for="ss-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
+        <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
         <input type="checkbox" id="ss-task1" class="toggle">
         <label for="ss-task1" class="checklist-item">2x Open Questions</label>
+        <div class="example-text">How have you been finding your current studies? What aspects of the course have you enjoyed the most so far?</div>
         
         <input type="checkbox" id="ss-task3" class="toggle">
-        <label for="ss-task3" class="checklist-item">Value Add Item</label>
+        <label for="ss-task3" class="checklist-item">Value Add Item <span class="example-toggle" onclick="toggleSingleExample('ss-task3-example')">Example</span></label>
+        <div id="ss-task3-example" class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="ss-task4" class="toggle">
-        <label for="ss-task4" class="checklist-item">Great Ask for Enrolment</label>
+        <label for="ss-task4" class="checklist-item">Great Ask for Enrolment <span class="example-toggle" onclick="toggleSingleExample('ss-task4-example')">Example</span></label>
+        <div id="ss-task4-example" class="example-text">Given your progress so far and your career goals, enrolling in the next unit would keep your momentum going. Would you like to get that sorted today?</div>
         
         <!-- Objection (with sub-checklist) -->
         <input type="checkbox" id="ss-task5" class="toggle objection">
         <label for="ss-task5" class="checklist-item">Objection</label>
         <div class="sub-checklist">
           <input type="checkbox" id="ss-ob-sub1" class="toggle">
-          <label for="ss-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
+          <label for="ss-ob-sub1" class="checklist-item">Listen &amp; Acknowledge <span class="example-toggle" onclick="toggleSingleExample('ss-ob-sub1-example')">Example</span></label>
+          <div id="ss-ob-sub1-example" class="example-text">I hear what you're saying about [time constraints/financial concerns/course difficulty]. That's completely understandable.</div>
           
           <input type="checkbox" id="ss-ob-sub2" class="toggle">
-          <label for="ss-ob-sub2" class="checklist-item">Clarify &amp; Question</label>
+          <label for="ss-ob-sub2" class="checklist-item">Clarify &amp; Question <span class="example-toggle" onclick="toggleSingleExample('ss-ob-sub2-example')">Example</span></label>
+          <div id="ss-ob-sub2-example" class="example-text">Could you share a bit more about what specifically is making it difficult to continue with your studies right now?</div>
           
           <input type="checkbox" id="ss-ob-sub3" class="toggle">
           <label for="ss-ob-sub3" class="checklist-item">Address the Objection</label>
+          <div class="example-text">Many of our students have faced similar challenges. We've found that [specific solution] has helped them continue their studies while managing those concerns.</div>
           
           <input type="checkbox" id="ss-ob-sub4" class="toggle">
           <label for="ss-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
+          <div class="example-text">Does that approach sound like it might work for your situation? Is there anything else we should consider to help you continue your studies?</div>
         </div>
         
         <input type="checkbox" id="ss-task6" class="toggle">
         <label for="ss-task6" class="checklist-item">Enrol on phone or "How &amp; When"</label>
+        <div class="example-text">I can help you enroll in your next unit right now over the phone, or if you prefer, we can schedule a time when you'll complete it yourself.</div>
         
         <input type="checkbox" id="ss-task7" class="toggle">
         <label for="ss-task7" class="checklist-item">Anything else?</label>
+        <div class="example-text">Is there anything else you need support with regarding your studies or the enrollment process?</div>
         
         <input type="checkbox" id="ss-task8" class="toggle">
         <label for="ss-task8" class="checklist-item">Summarise Call</label>
+        <div class="example-text">To summarize, we've discussed your progress in the current unit, addressed your questions about the next unit, and [agreed on next steps for enrollment].</div>
         
         <input type="checkbox" id="ss-task9" class="toggle">
         <label for="ss-task9" class="checklist-item">Book followup or next contact</label>
+        <div class="example-text">I'll check in with you on [date] to see how you're going with the enrollment process and if you need any additional support.</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -358,44 +348,61 @@
       </div>
       <div class="checklist main-checklist">
         <input type="checkbox" id="rs-compliance" class="toggle">
-        <label for="rs-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
+        <label for="rs-compliance" class="checklist-item compliance-item">Compliance: Recording | Security <span class="example-toggle" onclick="toggleSingleExample('rs-compliance-example')">Example</span></label>
+        <div id="rs-compliance-example" class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
         <input type="checkbox" id="rs-task1" class="toggle">
-        <label for="rs-task1" class="checklist-item">2x Open Questions</label>
+        <label for="rs-task1" class="checklist-item">2x Open Questions <span class="example-toggle" onclick="toggleSingleExample('rs-task1-example')">Example</span></label>
+        <div id="rs-task1-example" class="example-text">How have things been since you completed your last unit? What have you been focusing on during your study break?</div>
+        
+        <input type="checkbox" id="rs-task2" class="toggle">
+        <label for="rs-task2" class="checklist-item">Uncover the Gap</label>
+        <div class="example-text">What were your original goals when you started this qualification? How would completing the course help you achieve those goals?</div>
         
         <input type="checkbox" id="rs-task3" class="toggle">
-        <label for="rs-task3" class="checklist-item">Value Add Item</label>
+        <label for="rs-task3" class="checklist-item">Value Add Item <span class="example-toggle" onclick="toggleSingleExample('rs-task3-example')">Example</span></label>
+        <div id="rs-task3-example" class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="rs-task4" class="toggle">
-        <label for="rs-task4" class="checklist-item">Great Ask for Enrolment</label>
+        <label for="rs-task4" class="checklist-item">Great Ask for Enrolment <span class="example-toggle" onclick="toggleSingleExample('rs-task4-example')">Example</span></label>
+        <div id="rs-task4-example" class="example-text">Based on your goals and the progress you've already made, getting back into your studies now would be a great step. Would you like to enroll in the next unit today?</div>
         
+        <!-- Objection (with sub-checklist) -->
         <input type="checkbox" id="rs-task5" class="toggle objection">
         <label for="rs-task5" class="checklist-item">Objection</label>
         <div class="sub-checklist">
           <input type="checkbox" id="rs-ob-sub1" class="toggle">
-          <label for="rs-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
+          <label for="rs-ob-sub1" class="checklist-item">Listen &amp; Acknowledge <span class="example-toggle" onclick="toggleSingleExample('rs-ob-sub1-example')">Example</span></label>
+          <div id="rs-ob-sub1-example" class="example-text">I understand your concern about [specific issue]. That's completely valid given your situation.</div>
           
           <input type="checkbox" id="rs-ob-sub2" class="toggle">
-          <label for="rs-ob-sub2" class="checklist-item">Clarify &amp; Question</label>
+          <label for="rs-ob-sub2" class="checklist-item">Clarify &amp; Question <span class="example-toggle" onclick="toggleSingleExample('rs-ob-sub2-example')">Example</span></label>
+          <div id="rs-ob-sub2-example" class="example-text">Could you tell me more about what specifically is making it difficult to return to your studies right now?</div>
           
           <input type="checkbox" id="rs-ob-sub3" class="toggle">
           <label for="rs-ob-sub3" class="checklist-item">Address the Objection</label>
+          <div class="example-text">Many students who've taken a break have faced similar challenges. Here's how we've helped them overcome this...</div>
           
           <input type="checkbox" id="rs-ob-sub4" class="toggle">
           <label for="rs-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
+          <div class="example-text">Does that approach sound like it might work for your situation? Would this help you get back on track with your studies?</div>
         </div>
         
         <input type="checkbox" id="rs-task6" class="toggle">
         <label for="rs-task6" class="checklist-item">Enrol on phone or "How &amp; When"</label>
+        <div class="example-text">I can help you enroll in your next unit right now, or we can schedule a time for you to complete it yourself. What works best for you?</div>
         
         <input type="checkbox" id="rs-task7" class="toggle">
         <label for="rs-task7" class="checklist-item">Anything else?</label>
+        <div class="example-text">Is there anything else you'd like to discuss about returning to your studies or the enrollment process?</div>
         
         <input type="checkbox" id="rs-task8" class="toggle">
         <label for="rs-task8" class="checklist-item">Summarise Call</label>
+        <div class="example-text">To summarize, we've discussed your study goals, addressed your questions about returning to study, and [agreed on next steps for enrollment].</div>
         
         <input type="checkbox" id="rs-task9" class="toggle">
         <label for="rs-task9" class="checklist-item">Book followup or next contact</label>
+        <div class="example-text">I'll check in with you on [date] to see how you're going with the enrollment process and if you need any additional support.</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -432,31 +439,36 @@
       </div>
       <div class="checklist main-checklist">
         <input type="checkbox" id="is-compliance" class="toggle">
-        <label for="is-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
+        <label for="is-compliance" class="checklist-item compliance-item">Compliance: Recording | Security <span class="example-toggle" onclick="toggleSingleExample('is-compliance-example')">Example</span></label>
+        <div id="is-compliance-example" class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
         <input type="checkbox" id="is-task1" class="toggle">
-        <label for="is-task1" class="checklist-item">2x Open Questions</label>
+        <label for="is-task1" class="checklist-item">2x Open Questions <span class="example-toggle" onclick="toggleSingleExample('is-task1-example')">Example</span></label>
+        <div id="is-task1-example" class="example-text">How are you feeling about starting your studies with us? What made you decide to pursue this qualification?</div>
+        
+        <input type="checkbox" id="is-task2" class="toggle">
+        <label for="is-task2" class="checklist-item">Pre-enrolled all available units on phone</label>
+        <div class="example-text">Let's go through your enrollment for all available units now to make sure you're all set for the upcoming study periods.</div>
         
         <input type="checkbox" id="is-task3" class="toggle">
-        <label for="is-task3" class="checklist-item">Value Add Item</label>
+        <label for="is-task3" class="checklist-item">Value Add Item <span class="example-toggle" onclick="toggleSingleExample('is-task3-example')">Example</span></label>
+        <div id="is-task3-example" class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="is-task4" class="toggle">
-        <label for="is-task4" class="checklist-item">Pre-enrolled all available units on phone</label>
+        <label for="is-task4" class="checklist-item">Additional Support Required <span class="example-toggle" onclick="toggleSingleExample('is-task4-example')">Example</span></label>
+        <div id="is-task4-example" class="example-text">Is there any specific support you think you might need as you begin your studies? We have resources for time management, academic writing, and technology assistance.</div>
+        
+        <input type="checkbox" id="is-task5" class="toggle">
+        <label for="is-task5" class="checklist-item">Anything else?</label>
+        <div class="example-text">Is there anything else you'd like to know or discuss before we wrap up today?</div>
         
         <input type="checkbox" id="is-task6" class="toggle">
-        <label for="is-task6" class="checklist-item">Identify their Gap</label>
+        <label for="is-task6" class="checklist-item">Summarise Call</label>
+        <div class="example-text">To summarize, we've confirmed your enrollment, discussed the support resources available to you, and [other key points from the call].</div>
         
         <input type="checkbox" id="is-task7" class="toggle">
-        <label for="is-task7" class="checklist-item">Additional Support Required?</label>
-        
-        <input type="checkbox" id="is-task8" class="toggle">
-        <label for="is-task8" class="checklist-item">Anything else?</label>
-        
-        <input type="checkbox" id="is-task9" class="toggle">
-        <label for="is-task9" class="checklist-item">Summarise Call</label>
-        
-        <input type="checkbox" id="is-task10" class="toggle">
-        <label for="is-task10" class="checklist-item">Book Next Call or Followup Steps</label>
+        <label for="is-task7" class="checklist-item">Book followup or next contact</label>
+        <div class="example-text">I'll check in with you again on [date] to see how you're settling into your studies and if you need any additional support.</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -489,25 +501,32 @@
       </div>
       <div class="checklist main-checklist">
         <input type="checkbox" id="fs-compliance" class="toggle">
-        <label for="fs-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
+        <label for="fs-compliance" class="checklist-item compliance-item">Compliance: Recording | Security <span class="example-toggle" onclick="toggleSingleExample('fs-compliance-example')">Example</span></label>
+        <div id="fs-compliance-example" class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
         <input type="checkbox" id="fs-task1" class="toggle">
-        <label for="fs-task1" class="checklist-item">2x Open Questions</label>
+        <label for="fs-task1" class="checklist-item">2x Open Questions <span class="example-toggle" onclick="toggleSingleExample('fs-task1-example')">Example</span></label>
+        <div id="fs-task1-example" class="example-text">How are your current studies progressing? What aspects of your course are you finding most valuable so far?</div>
         
         <input type="checkbox" id="fs-task3" class="toggle">
-        <label for="fs-task3" class="checklist-item">Value Add Item</label>
+        <label for="fs-task3" class="checklist-item">Value Add Item <span class="example-toggle" onclick="toggleSingleExample('fs-task3-example')">Example</span></label>
+        <div id="fs-task3-example" class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="fs-task4" class="toggle">
-        <label for="fs-task4" class="checklist-item">Extra Support Required?</label>
+        <label for="fs-task4" class="checklist-item">Extra Support Required? <span class="example-toggle" onclick="toggleSingleExample('fs-task4-example')">Example</span></label>
+        <div id="fs-task4-example" class="example-text">Based on how your studies are going, is there any additional support you feel would be helpful at this stage?</div>
         
         <input type="checkbox" id="fs-task5" class="toggle">
         <label for="fs-task5" class="checklist-item">Anything else?</label>
+        <div class="example-text">Is there anything else about your studies or the course that you'd like to discuss today?</div>
         
         <input type="checkbox" id="fs-task6" class="toggle">
         <label for="fs-task6" class="checklist-item">Summarise Call</label>
+        <div class="example-text">To summarize, we've discussed your current progress, identified some resources that might help with [specific area], and [other key points].</div>
         
         <input type="checkbox" id="fs-task7" class="toggle">
         <label for="fs-task7" class="checklist-item">Book followup or next contact</label>
+        <div class="example-text">I'll check in with you again on [date] to see how you're progressing and if the resources we discussed have been helpful.</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -540,41 +559,52 @@
       </div>
       <div class="checklist main-checklist">
         <input type="checkbox" id="sup-compliance" class="toggle">
-        <label for="sup-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
+        <label for="sup-compliance" class="checklist-item compliance-item">Compliance: Recording | Security <span class="example-toggle" onclick="toggleSingleExample('sup-compliance-example')">Example</span></label>
+        <div id="sup-compliance-example" class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
         <input type="checkbox" id="sup-task1" class="toggle">
-        <label for="sup-task1" class="checklist-item">2x Open Questions</label>
+        <label for="sup-task1" class="checklist-item">2x Open Questions <span class="example-toggle" onclick="toggleSingleExample('sup-task1-example')">Example</span></label>
+        <div id="sup-task1-example" class="example-text">How have things been since our last conversation? What progress have you made with the challenges we discussed?</div>
         
         <input type="checkbox" id="sup-task2" class="toggle">
         <label for="sup-task2" class="checklist-item">Previous Support?</label>
+        <div class="example-text">Last time we spoke, we discussed [specific support]. How has that been working for you?</div>
         
         <input type="checkbox" id="sup-task3" class="toggle">
-        <label for="sup-task3" class="checklist-item">Value Add Item</label>
+        <label for="sup-task3" class="checklist-item">Value Add Item <span class="example-toggle" onclick="toggleSingleExample('sup-task3-example')">Example</span></label>
+        <div id="sup-task3-example" class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="sup-task4" class="toggle objection">
         <label for="sup-task4" class="checklist-item">Objection</label>
         <div class="sub-checklist">
           <input type="checkbox" id="sup-ob-sub1" class="toggle">
-          <label for="sup-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
+          <label for="sup-ob-sub1" class="checklist-item">Listen &amp; Acknowledge <span class="example-toggle" onclick="toggleSingleExample('sup-ob-sub1-example')">Example</span></label>
+          <div id="sup-ob-sub1-example" class="example-text">I understand your frustration with [specific issue]. That sounds challenging.</div>
           
           <input type="checkbox" id="sup-ob-sub2" class="toggle">
-          <label for="sup-ob-sub2" class="checklist-item">Clarify &amp; Question</label>
+          <label for="sup-ob-sub2" class="checklist-item">Clarify &amp; Question <span class="example-toggle" onclick="toggleSingleExample('sup-ob-sub2-example')">Example</span></label>
+          <div id="sup-ob-sub2-example" class="example-text">Could you tell me more about what specifically is making this difficult for you?</div>
           
           <input type="checkbox" id="sup-ob-sub3" class="toggle">
           <label for="sup-ob-sub3" class="checklist-item">Address the Objection</label>
+          <div class="example-text">Based on what you've shared, here's what we can do to help address this issue...</div>
           
           <input type="checkbox" id="sup-ob-sub4" class="toggle">
           <label for="sup-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
+          <div class="example-text">Does this approach sound like it would help with the challenges you're facing?</div>
         </div>
         
         <input type="checkbox" id="sup-task5" class="toggle">
         <label for="sup-task5" class="checklist-item">New Additional Support Required?</label>
+        <div class="example-text">Are there any new challenges or areas where you feel you need additional support?</div>
         
         <input type="checkbox" id="sup-task6" class="toggle">
         <label for="sup-task6" class="checklist-item">Summarise Call</label>
+        <div class="example-text">To summarize, we've discussed how the previous support has been working, addressed [specific issues], and identified some new strategies to help with [new challenges].</div>
         
         <input type="checkbox" id="sup-task7" class="toggle">
         <label for="sup-task7" class="checklist-item">Book followup or next contact</label>
+        <div class="example-text">Let's schedule our next check-in for [date] to see how these strategies are working for you.</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -607,44 +637,56 @@
       </div>
       <div class="checklist main-checklist">
         <input type="checkbox" id="ars-compliance" class="toggle">
-        <label for="ars-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
+        <label for="ars-compliance" class="checklist-item compliance-item">Compliance: Recording | Security <span class="example-toggle" onclick="toggleSingleExample('ars-compliance-example')">Example</span></label>
+        <div id="ars-compliance-example" class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
         <input type="checkbox" id="ars-task1" class="toggle">
-        <label for="ars-task1" class="checklist-item">2x Open Questions</label>
+        <label for="ars-task1" class="checklist-item">2x Open Questions <span class="example-toggle" onclick="toggleSingleExample('ars-task1-example')">Example</span></label>
+        <div id="ars-task1-example" class="example-text">How have you been finding your studies recently? What aspects have been most challenging for you?</div>
         
         <input type="checkbox" id="ars-task2" class="toggle">
         <label for="ars-task2" class="checklist-item">Uncover the Problem</label>
+        <div class="example-text">I noticed [specific issue - e.g., missed submissions, low engagement]. Can you tell me more about what's been happening?</div>
         
         <input type="checkbox" id="ars-task3" class="toggle">
         <label for="ars-task3" class="checklist-item">Problem Solve</label>
+        <div class="example-text">Based on what you've shared, let's explore some options that might help address these challenges.</div>
         
         <input type="checkbox" id="ars-task4" class="toggle">
         <label for="ars-task4" class="checklist-item">Connect course to Motivation</label>
+        <div class="example-text">Thinking back to why you started this course, how does completing your qualification connect to your longer-term goals?</div>
         
         <input type="checkbox" id="ars-task5" class="toggle objection">
         <label for="ars-task5" class="checklist-item">Objection</label>
         <div class="sub-checklist">
           <input type="checkbox" id="ars-ob-sub1" class="toggle">
-          <label for="ars-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
+          <label for="ars-ob-sub1" class="checklist-item">Listen &amp; Acknowledge <span class="example-toggle" onclick="toggleSingleExample('ars-ob-sub1-example')">Example</span></label>
+          <div id="ars-ob-sub1-example" class="example-text">I understand that [specific challenge] is making it difficult to continue. That's a valid concern.</div>
           
           <input type="checkbox" id="ars-ob-sub2" class="toggle">
-          <label for="ars-ob-sub2" class="checklist-item">Clarify &amp; Question</label>
+          <label for="ars-ob-sub2" class="checklist-item">Clarify &amp; Question <span class="example-toggle" onclick="toggleSingleExample('ars-ob-sub2-example')">Example</span></label>
+          <div id="ars-ob-sub2-example" class="example-text">Could you share more about what specifically about [issue] is creating the biggest barrier for you?</div>
           
           <input type="checkbox" id="ars-ob-sub3" class="toggle">
           <label for="ars-ob-sub3" class="checklist-item">Address the Objection</label>
+          <div class="example-text">Many students have faced similar challenges. Here's how we've been able to help them overcome this...</div>
           
           <input type="checkbox" id="ars-ob-sub4" class="toggle">
           <label for="ars-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
+          <div class="example-text">Does this approach sound like it could help you overcome the challenges you're facing?</div>
         </div>
         
         <input type="checkbox" id="ars-task6" class="toggle">
         <label for="ars-task6" class="checklist-item">Additional Support Required</label>
+        <div class="example-text">What additional support would be most helpful for you right now? We have resources for [list relevant options].</div>
         
         <input type="checkbox" id="ars-task8" class="toggle">
         <label for="ars-task8" class="checklist-item">Summarise Call</label>
+        <div class="example-text">To summarize, we've identified [specific challenges], discussed strategies to address them, and agreed on [specific next steps].</div>
         
         <input type="checkbox" id="ars-task9" class="toggle">
         <label for="ars-task9" class="checklist-item">Book followup or next contact</label>
+        <div class="example-text">I'd like to check in with you again on [date] to see how these strategies are working and provide any additional support you might need.</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -677,25 +719,32 @@
       </div>
       <div class="checklist main-checklist">
         <input type="checkbox" id="ps-compliance" class="toggle">
-        <label for="ps-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
+        <label for="ps-compliance" class="checklist-item compliance-item">Compliance: Recording | Security <span class="example-toggle" onclick="toggleSingleExample('ps-compliance-example')">Example</span></label>
+        <div id="ps-compliance-example" class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
         <input type="checkbox" id="ps-task1" class="toggle">
-        <label for="ps-task1" class="checklist-item">2x Open Questions</label>
+        <label for="ps-task1" class="checklist-item">2x Open Questions <span class="example-toggle" onclick="toggleSingleExample('ps-task1-example')">Example</span></label>
+        <div id="ps-task1-example" class="example-text">How are you feeling about your upcoming placement? What aspects are you most looking forward to or concerned about?</div>
         
         <input type="checkbox" id="ps-task2" class="toggle">
-        <label for="ps-task2" class="checklist-item">Value Add Item</label>
+        <label for="ps-task2" class="checklist-item">Value Add Item <span class="example-toggle" onclick="toggleSingleExample('ps-task2-example')">Example</span></label>
+        <div id="ps-task2-example" class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="ps-task3" class="toggle">
-        <label for="ps-task3" class="checklist-item">Additional Support Required</label>
+        <label for="ps-task3" class="checklist-item">Additional Support Required <span class="example-toggle" onclick="toggleSingleExample('ps-task3-example')">Example</span></label>
+        <div id="ps-task3-example" class="example-text">Is there any specific support you feel you need to prepare for your placement? We can help with [list relevant options].</div>
         
         <input type="checkbox" id="ps-task4" class="toggle">
         <label for="ps-task4" class="checklist-item">Anything else?</label>
+        <div class="example-text">Is there anything else about your placement or studies that you'd like to discuss today?</div>
         
         <input type="checkbox" id="ps-task5" class="toggle">
         <label for="ps-task5" class="checklist-item">Summarise Call</label>
+        <div class="example-text">To summarize, we've discussed your upcoming placement, addressed your questions about [specific topics], and identified some resources to help you prepare.</div>
         
         <input type="checkbox" id="ps-task6" class="toggle">
         <label for="ps-task6" class="checklist-item">Book followup or next contact</label>
+        <div class="example-text">I'll check in with you again on [date] to see how your placement preparation is going and if you need any additional support.</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -796,6 +845,23 @@
           status.textContent = 'Off';
         }
       });
+
+      // Function to toggle examples visibility
+      function toggleExamples(containerId) {
+        const container = document.getElementById(containerId);
+        // Get the correct button ID
+        let prefix = containerId.replace('checklist-', '');
+        prefix = prefix.split('-')[0]; // Get just the first part (e.g., 'sales' from 'sales-start')
+        const toggleBtn = document.getElementById(prefix + '-examples-btn');
+        
+        if (container.classList.contains('examples-visible')) {
+          container.classList.remove('examples-visible');
+          toggleBtn.textContent = 'Show Examples';
+        } else {
+          container.classList.add('examples-visible');
+          toggleBtn.textContent = 'Hide Examples';
+        }
+      }
     </script>
   </body>
 </html> 
