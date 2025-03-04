@@ -1,0 +1,227 @@
+CALL CENTER CHECKLISTS
+===================
+
+1. REGISTRATION CALL
+-------------------
+□ Compliance: Recording | Security
+   Example: "Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?"
+
+□ 2x Open Questions
+   Example: "How have you been finding your current studies? What aspects of the course have you enjoyed the most so far?"
+
+□ Value Add Item
+   Example: "What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?"
+
+□ Great Ask for Enrolment
+   Example: "Given your progress so far and your career goals, enrolling in the next unit would keep your momentum going. Would you like to get that sorted today?"
+
+□ Objection Handling:
+   - Listen & Acknowledge
+     Example: "I hear what you're saying about [time constraints/financial concerns/course difficulty]. That's completely understandable."
+   - Clarify & Question
+     Example: "Could you share a bit more about what specifically is making it difficult to continue with your studies right now?"
+   - Address the Objection
+     Example: "Many of our students have faced similar challenges. We've found that [specific solution] has helped them continue their studies while managing those concerns."
+   - Confirm & Close
+     Example: "Does that approach sound like it might work for your situation? Is there anything else we should consider to help you continue your studies?"
+
+□ Enrol on phone or "How & When"
+   Example: "I can help you enroll in your next unit right now over the phone, or if you prefer, we can schedule a time when you'll complete it yourself."
+
+□ Anything else?
+   Example: "We have covered the items I wanted to make sure to go over, is there anything else you'd like to ask or go over while you have me on the phone?"
+
+□ Summarise Call
+   Example: "Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner."
+
+□ Book vCita / get Good Times to Call & Advise When Calling Next
+   Example: "I'll check in with you on [date] to see how you're going with the enrollment process and if you need any additional support."
+
+2. REENGAGEMENT CALL
+-------------------
+□ Compliance: Recording | Security
+   Example: "Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?"
+
+□ 2x Open Questions
+   Example: "How have things been since you completed your last unit? What have you been focusing on during your study break?"
+
+□ Uncover the Gap
+   Example: "What were your original goals when you started this qualification? How would completing the course help you achieve those goals?"
+
+□ Value Add Item
+   Example: "What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?"
+
+□ Great Ask for Enrolment
+   Example: "Based on your goals and the progress you've already made, getting back into your studies now would be a great step. Would you like to enroll in the next unit today?"
+
+□ Objection Handling:
+   - Listen & Acknowledge
+     Example: "I understand your concern about [specific issue]. That's completely valid given your situation."
+   - Clarify & Question
+     Example: "Could you tell me more about what specifically is making it difficult to return to your studies right now?"
+   - Address the Objection
+     Example: "Many students who've taken a break have faced similar challenges. Here's how we've helped them overcome this..."
+   - Confirm & Close
+     Example: "Does that approach sound like it might work for your situation? Would this help you get back on track with your studies?"
+
+□ Enrol on phone or "How & When"
+   Example: "I can help you enroll in your next unit right now, or we can schedule a time for you to complete it yourself. What works best for you?"
+
+□ Anything else?
+   Example: "We have covered the items I wanted to make sure to go over, is there anything else you'd like to ask or go over while you have me on the phone?"
+
+□ Summarise Call
+   Example: "Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner."
+
+□ Book vCita / get Good Times to Call & Advise When Calling Next
+   Example: "I'll check in with you on [date] to see how you're going with the enrollment process and if you need any additional support."
+
+3. WELCOME CALL
+--------------
+□ Compliance: Recording | Security
+   Example: "Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?"
+
+□ 2x Open Questions
+   Example: "What made you choose University of Canberra Online? What is the outcome you are going to get from completing this Qualification?"
+
+□ Pre-enrolled all available units on phone
+   Example: "Let's go through your enrollment for all available units now to make sure you're all set for the upcoming study periods."
+
+□ Value Add Item
+   Example: "What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?"
+
+□ Additional Support Call (if required)
+   Example: "So I can follow-up on the support/resources given for ______, lets book in a call on _______"
+
+□ Anything else?
+   Example: "We have covered the items I wanted to make sure to go over, is there anything else you'd like to ask or go over while you have me on the phone?"
+
+□ Summarise Call
+   Example: "Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner."
+
+□ Book vCita / get Good Times to Call & Advise When Calling Next
+   Example: "I'll check in with you again on [date] to see how you're settling into your studies and if you need any additional support."
+
+4. CS CALL
+---------
+□ Compliance: Recording | Security
+   Example: "Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?"
+
+□ 2x Open Questions
+   Example: "What's been going on in your world lately? How has it been going since you spoke to us last?"
+
+□ Value Add Item
+   Example: "What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?"
+
+□ Additional Support Call (if required)
+   Example: "So I can follow-up on the support/resources given for ______, lets book in a call on _______"
+
+□ Anything else?
+   Example: "We have covered the items I wanted to make sure to go over, is there anything else you'd like to ask or go over while you have me on the phone?"
+
+□ Summarise Call
+   Example: "Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner."
+
+□ Book vCita / get Good Times to Call & Advise When Calling Next
+   Example: "I'll check in with you again on [date] to see how you're progressing and if the resources we discussed have been helpful."
+
+5. SUPPORT CALL
+-------------
+□ Compliance: Recording | Security
+   Example: "Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?"
+
+□ 2x Open Questions
+   Example: "How have things been since our last conversation? What progress have you made with the challenges we discussed?"
+
+□ Previous Support?
+   Example: "Last time we spoke, we discussed [specific support]. How has that been working for you?"
+
+□ Value Add Item
+   Example: "What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?"
+
+□ Objection Handling:
+   - Listen & Acknowledge
+     Example: "I understand your frustration with [specific issue]. That sounds challenging."
+   - Clarify & Question
+     Example: "Could you tell me more about what specifically is making this difficult for you?"
+   - Address the Objection
+     Example: "Based on what you've shared, here's what we can do to help address this issue..."
+   - Confirm & Close
+     Example: "Does this approach sound like it would help with the challenges you're facing?"
+
+□ Additional Support Call (if required)
+   Example: "Are there any new challenges or areas where you feel you need additional support?"
+
+□ Summarise Call
+   Example: "Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner."
+
+□ Book vCita / get Good Times to Call & Advise When Calling Next
+   Example: "Let's schedule our next check-in for [date] to see how these strategies are working for you."
+
+6. AT-RISK CALL
+-------------
+□ Compliance: Recording | Security
+   Example: "Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?"
+
+□ 2x Open Questions
+   Example: "How have you been finding your studies recently? What aspects have been most challenging for you?"
+
+□ Uncover the Problem
+   Example: "I noticed [specific issue - e.g., missed submissions, low engagement]. Can you tell me more about what's been happening?"
+
+□ Problem Solve
+   Example: "Based on what you've shared, let's explore some options that might help address these challenges."
+
+□ Connect course to Motivation
+   Example: "Thinking back to why you started this course, how does completing your qualification connect to your longer-term goals?"
+
+□ Objection Handling:
+   - Listen & Acknowledge
+     Example: "I understand that [specific challenge] is making it difficult to continue. That's a valid concern."
+   - Clarify & Question
+     Example: "Could you share more about what specifically about [issue] is creating the biggest barrier for you?"
+   - Address the Objection
+     Example: "Many students have faced similar challenges. Here's how we've been able to help them overcome this..."
+   - Confirm & Close
+     Example: "Does this approach sound like it could help you overcome the challenges you're facing?"
+
+□ Additional Support Call (if required)
+   Example: "So I can follow-up on the support/resources given for ______, lets book in a call on _______"
+
+□ Summarise Call
+   Example: "Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner."
+
+□ Book vCita / get Good Times to Call & Advise When Calling Next
+   Example: "I'd like to check in with you again on [date] to see how these strategies are working and provide any additional support you might need."
+
+7. PLACEMENT CALL
+---------------
+□ Compliance: Recording | Security
+   Example: "Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?"
+
+□ 2x Open Questions
+   Example: "How are you feeling about your upcoming placement? What aspects are you most looking forward to or concerned about?"
+
+□ Value Add Item
+   Example: "Which area would be most helpful for us to help with: CV Creation, Personal Statement Writing, Police Check & WWCC or Finding Referrals?"
+
+□ Additional Support Call (if required)
+   Example: "So I can follow-up on the support/resources given for ______, lets book in a call on _______"
+
+□ Anything else?
+   Example: "We have covered the items I wanted to make sure to go over, is there anything else you'd like to ask or go over while you have me on the phone?"
+
+□ Summarise Call
+   Example: "Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner."
+
+□ Book vCita / get Good Times to Call & Advise When Calling Next
+   Example: "I'll check in with you again on [date] to see how your placement preparation is going and if you need any additional support."
+
+VOICEMAIL TEMPLATE (For all call types)
+-------------------------------------
+"Hi it's _____ from __ Online. I wanted to give you a reminder that you have the ____ unit starting on ____ for O Week. The Enrolment cut off is ____. I don't want you to miss the opportunity to study and extend your current graduation date. If you need support with enrolling, please call me back on this number or book a call with me."
+
+Voicemail Checklist:
+□ Purpose
+□ Call to Action
+□ Timeframe 
