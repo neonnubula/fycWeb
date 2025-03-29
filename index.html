@@ -204,20 +204,44 @@
         color: #333;
       }
       
+      /* Show all examples when examples-visible is applied */
       .examples-visible .example-text {
         display: block;
       }
       
-      /* Hide compliance examples when compliance is off */
+      /* Hide compliance examples by default */
       .example-text.compliance-example {
+        display: none !important;
+      }
+      
+      /* Show compliance examples only when compliance is on AND examples are visible */
+      .compliance-visible.examples-visible .example-text.compliance-example {
+        display: block !important;
+      }
+      
+      /* Hide greeting items by default */
+      .greeting-item {
         display: none;
       }
-      .compliance-visible .example-text.compliance-example {
-        display: none; /* Start hidden even when compliance is visible */
-      }
-      /* Only show compliance examples when both compliance is on AND examples are visible */
-      .compliance-visible.examples-visible .example-text.compliance-example {
+      
+      /* Show greeting items when greeting mode is on */
+      .greeting-visible .greeting-item {
         display: block;
+      }
+      
+      /* Make sure greeting checkboxes don't show */
+      .toggle.greeting-item {
+        display: none !important;
+      }
+      
+      /* Hide greeting examples by default */
+      .example-text.greeting-example {
+        display: none !important;
+      }
+      
+      /* Show greeting examples ONLY when greeting mode is on AND examples are visible */
+      .examples-visible .example-text.greeting-example.show-greeting {
+        display: block !important;
       }
     </style>
   </head>
@@ -227,6 +251,14 @@
     <div id="home" class="page container">
       <h1>Finish Your Checklist</h1>
       <h2>Call Checklists</h2>
+      <div class="toggle-container">
+        <span>Greeting Mode:</span>
+        <label class="switch">
+          <input type="checkbox" id="greeting-toggle" onchange="toggleGreeting()">
+          <span class="slider"></span>
+        </label>
+        <span id="greeting-toggle-status">Off</span>
+      </div>
       <div class="toggle-container">
         <span>Compliance Mode:</span>
         <label class="switch">
@@ -238,7 +270,7 @@
       <div>
         <a class="button" href="#checklist-sales-start">Registration Call</a>
         <a class="button" href="#checklist-reengagement-start">Reengagement Call</a>
-        <a class="button" href="#checklist-introduction-start">Welcome Call</a>
+        <a class="button" href="#checklist-introduction-start">Welcome Call (1st Call)</a>
         <a class="button" href="#checklist-followup-start">CS Call</a>
         <a class="button" href="#checklist-support-start">Support Call</a>
         <a class="button" href="#checklist-at-risk-start">At-Risk Call</a>
@@ -258,25 +290,33 @@
         <button id="sales-examples-btn" class="button" onclick="toggleExamples('checklist-sales-start')">Show Examples</button>
       </div>
       <div class="checklist main-checklist">
+        <input type="checkbox" id="ss-greeting" class="toggle">
+        <label for="ss-greeting" class="checklist-item greeting-item">Greeting</label>
+        <div class="example-text greeting-example">Hi its ____, your Student Success Advisor from ____, how are you?</div>
+        
         <input type="checkbox" id="ss-compliance" class="toggle">
         <label for="ss-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
         <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
+        <input type="checkbox" id="ss-purpose" class="toggle">
+        <label for="ss-purpose" class="checklist-item">Define purpose of call</label>
+        <div class="example-text">I wanted to check in with you today to discuss your enrollment for the upcoming study period and make sure you have all the support you need.</div>
+        
         <input type="checkbox" id="ss-task1" class="toggle">
-        <label for="ss-task1" class="checklist-item">2x Open Questions</label>
+        <label for="ss-task1" class="checklist-item">Rapport & Explore - Listen!</label>
         <div class="example-text">How have you been finding your current studies? What aspects of the course have you enjoyed the most so far?</div>
         
         <input type="checkbox" id="ss-task3" class="toggle">
-        <label for="ss-task3" class="checklist-item">Value Add Item</label>
+        <label for="ss-task3" class="checklist-item">Best support resource for them?</label>
         <div class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="ss-task4" class="toggle">
-        <label for="ss-task4" class="checklist-item">Great Ask for Enrolment</label>
+        <label for="ss-task4" class="checklist-item">Ask to pre-enrol now on the call</label>
         <div class="example-text">Given your progress so far and your career goals, enrolling in the next unit would keep your momentum going. Would you like to get that sorted today?</div>
         
         <!-- Objection (with sub-checklist) -->
         <input type="checkbox" id="ss-task5" class="toggle objection">
-        <label for="ss-task5" class="checklist-item">Objection</label>
+        <label for="ss-task5" class="checklist-item">Handle objection & Ask again</label>
         <div class="sub-checklist">
           <input type="checkbox" id="ss-ob-sub1" class="toggle">
           <label for="ss-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
@@ -294,10 +334,6 @@
           <label for="ss-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
           <div class="example-text">Does that approach sound like it might work for your situation? Is there anything else we should consider to help you continue your studies?</div>
         </div>
-        
-        <input type="checkbox" id="ss-task6" class="toggle">
-        <label for="ss-task6" class="checklist-item">Enrol on phone or "How &amp; When"</label>
-        <div class="example-text">I can help you enroll in your next unit right now over the phone, or if you prefer, we can schedule a time when you'll complete it yourself.</div>
         
         <input type="checkbox" id="ss-task7" class="toggle">
         <label for="ss-task7" class="checklist-item">Anything else?</label>
@@ -348,12 +384,20 @@
         <button id="reengagement-examples-btn" class="button" onclick="toggleExamples('checklist-reengagement-start')">Show Examples</button>
       </div>
       <div class="checklist main-checklist">
+        <input type="checkbox" id="rs-greeting" class="toggle">
+        <label for="rs-greeting" class="checklist-item greeting-item">Greeting</label>
+        <div class="example-text greeting-example">Hi its ____, your Student Success Advisor from ____, how are you?</div>
+        
         <input type="checkbox" id="rs-compliance" class="toggle">
         <label for="rs-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
         <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
+        <input type="checkbox" id="rs-purpose" class="toggle">
+        <label for="rs-purpose" class="checklist-item">Define purpose of call</label>
+        <div class="example-text">I'm reaching out today to see how you've been since completing your last unit and to discuss your options for continuing your studies with us.</div>
+        
         <input type="checkbox" id="rs-task1" class="toggle">
-        <label for="rs-task1" class="checklist-item">2x Open Questions</label>
+        <label for="rs-task1" class="checklist-item">Rapport & Explore - Listen!</label>
         <div class="example-text">How have things been since you completed your last unit? What have you been focusing on during your study break?</div>
         
         <input type="checkbox" id="rs-task2" class="toggle">
@@ -361,16 +405,16 @@
         <div class="example-text">What were your original goals when you started this qualification? How would completing the course help you achieve those goals?</div>
         
         <input type="checkbox" id="rs-task3" class="toggle">
-        <label for="rs-task3" class="checklist-item">Value Add Item</label>
+        <label for="rs-task3" class="checklist-item">Best support resource for them?</label>
         <div class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="rs-task4" class="toggle">
-        <label for="rs-task4" class="checklist-item">Great Ask for Enrolment</label>
+        <label for="rs-task4" class="checklist-item">Ask to pre-enrol now on the call</label>
         <div class="example-text">Based on your goals and the progress you've already made, getting back into your studies now would be a great step. Would you like to enroll in the next unit today?</div>
         
         <!-- Objection (with sub-checklist) -->
         <input type="checkbox" id="rs-task5" class="toggle objection">
-        <label for="rs-task5" class="checklist-item">Objection</label>
+        <label for="rs-task5" class="checklist-item">Handle objection & Ask again</label>
         <div class="sub-checklist">
           <input type="checkbox" id="rs-ob-sub1" class="toggle">
           <label for="rs-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
@@ -388,10 +432,6 @@
           <label for="rs-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
           <div class="example-text">Does that approach sound like it might work for your situation? Would this help you get back on track with your studies?</div>
         </div>
-        
-        <input type="checkbox" id="rs-task6" class="toggle">
-        <label for="rs-task6" class="checklist-item">Enrol on phone or "How &amp; When"</label>
-        <div class="example-text">I can help you enroll in your next unit right now, or we can schedule a time for you to complete it yourself. What works best for you?</div>
         
         <input type="checkbox" id="rs-task7" class="toggle">
         <label for="rs-task7" class="checklist-item">Anything else?</label>
@@ -433,7 +473,7 @@
     <!-- Checklist for Introduction Start Call -->
     <div id="checklist-introduction-start" class="page container call-view-active">
       <h1>Finish your Checklist</h1>
-      <h2>Welcome Call</h2>
+      <h2>Welcome Call (1st Call)</h2>
       <div class="view-toggle">
         <button id="introduction-call-btn" class="button active" onclick="toggleView('checklist-introduction-start', 'call')">Call</button>
         <button id="introduction-voicemail-btn" class="button" onclick="toggleView('checklist-introduction-start', 'voicemail')">Voicemail</button>
@@ -442,12 +482,20 @@
         <button id="introduction-examples-btn" class="button" onclick="toggleExamples('checklist-introduction-start')">Show Examples</button>
       </div>
       <div class="checklist main-checklist">
+        <input type="checkbox" id="is-greeting" class="toggle">
+        <label for="is-greeting" class="checklist-item greeting-item">Greeting</label>
+        <div class="example-text greeting-example">Hi its ____, your Student Success Advisor from ____, how are you?</div>
+        
         <input type="checkbox" id="is-compliance" class="toggle">
         <label for="is-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
         <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
+        <input type="checkbox" id="is-purpose" class="toggle">
+        <label for="is-purpose" class="checklist-item">Define purpose of call</label>
+        <div class="example-text">I wanted to welcome you to your program, introduce myself as your Student Success Advisor, and make sure you have everything you need to get started successfully.</div>
+        
         <input type="checkbox" id="is-task1" class="toggle">
-        <label for="is-task1" class="checklist-item">2x Open Questions</label>
+        <label for="is-task1" class="checklist-item">Rapport & Explore - Listen!</label>
         <div class="example-text">What made you choose University of Canberra Online? What is the outcome you are going to get from completing this Qualification?</div>
         
         <input type="checkbox" id="is-task2" class="toggle">
@@ -455,7 +503,7 @@
         <div class="example-text">Let's go through your enrollment for all available units now to make sure you're all set for the upcoming study periods.</div>
         
         <input type="checkbox" id="is-task3" class="toggle">
-        <label for="is-task3" class="checklist-item">Value Add Item</label>
+        <label for="is-task3" class="checklist-item">Best support resource for them?</label>
         <div class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="is-task4" class="toggle">
@@ -507,16 +555,24 @@
         <button id="followup-examples-btn" class="button" onclick="toggleExamples('checklist-followup-start')">Show Examples</button>
       </div>
       <div class="checklist main-checklist">
+        <input type="checkbox" id="fs-greeting" class="toggle">
+        <label for="fs-greeting" class="checklist-item greeting-item">Greeting</label>
+        <div class="example-text greeting-example">Hi its ____, your Student Success Advisor from ____, how are you?</div>
+        
         <input type="checkbox" id="fs-compliance" class="toggle">
         <label for="fs-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
         <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
+        <input type="checkbox" id="fs-purpose" class="toggle">
+        <label for="fs-purpose" class="checklist-item">Define purpose of call</label>
+        <div class="example-text">I'm checking in with you today to see how your studies are going and to make sure you have all the support and resources you need to be successful.</div>
+        
         <input type="checkbox" id="fs-task1" class="toggle">
-        <label for="fs-task1" class="checklist-item">2x Open Questions</label>
+        <label for="fs-task1" class="checklist-item">Rapport & Explore - Listen!</label>
         <div class="example-text">What's been going on in your world lately? How has it been going since you spoke to us last?</div>
         
         <input type="checkbox" id="fs-task3" class="toggle">
-        <label for="fs-task3" class="checklist-item">Value Add Item</label>
+        <label for="fs-task3" class="checklist-item">Best support resource for them?</label>
         <div class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="fs-task4" class="toggle">
@@ -568,12 +624,20 @@
         <button id="support-examples-btn" class="button" onclick="toggleExamples('checklist-support-start')">Show Examples</button>
       </div>
       <div class="checklist main-checklist">
+        <input type="checkbox" id="sup-greeting" class="toggle">
+        <label for="sup-greeting" class="checklist-item greeting-item">Greeting</label>
+        <div class="example-text greeting-example">Hi its ____, your Student Success Advisor from ____, how are you?</div>
+        
         <input type="checkbox" id="sup-compliance" class="toggle">
         <label for="sup-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
         <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
+        <input type="checkbox" id="sup-purpose" class="toggle">
+        <label for="sup-purpose" class="checklist-item">Define purpose of call</label>
+        <div class="example-text">I'm following up on our previous conversation about [specific support area] to see how things are going and if you need any additional assistance.</div>
+        
         <input type="checkbox" id="sup-task1" class="toggle">
-        <label for="sup-task1" class="checklist-item">2x Open Questions</label>
+        <label for="sup-task1" class="checklist-item">Rapport & Explore - Listen!</label>
         <div class="example-text">How have things been since our last conversation? What progress have you made with the challenges we discussed?</div>
         
         <input type="checkbox" id="sup-task2" class="toggle">
@@ -581,11 +645,11 @@
         <div class="example-text">Last time we spoke, we discussed [specific support]. How has that been working for you?</div>
         
         <input type="checkbox" id="sup-task3" class="toggle">
-        <label for="sup-task3" class="checklist-item">Value Add Item</label>
+        <label for="sup-task3" class="checklist-item">Best support resource for them?</label>
         <div class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="sup-task4" class="toggle objection">
-        <label for="sup-task4" class="checklist-item">Objection</label>
+        <label for="sup-task4" class="checklist-item">Handle objection & Ask again</label>
         <div class="sub-checklist">
           <input type="checkbox" id="sup-ob-sub1" class="toggle">
           <label for="sup-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
@@ -649,12 +713,20 @@
         <button id="at-risk-examples-btn" class="button" onclick="toggleExamples('checklist-at-risk-start')">Show Examples</button>
       </div>
       <div class="checklist main-checklist">
+        <input type="checkbox" id="ars-greeting" class="toggle">
+        <label for="ars-greeting" class="checklist-item greeting-item">Greeting</label>
+        <div class="example-text greeting-example">Hi its ____, your Student Success Advisor from ____, how are you?</div>
+        
         <input type="checkbox" id="ars-compliance" class="toggle">
         <label for="ars-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
         <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
+        <input type="checkbox" id="ars-purpose" class="toggle">
+        <label for="ars-purpose" class="checklist-item">Define purpose of call</label>
+        <div class="example-text">I noticed some challenges with your recent course progress, and I wanted to check in to see how you're doing and discuss how we might support you moving forward.</div>
+        
         <input type="checkbox" id="ars-task1" class="toggle">
-        <label for="ars-task1" class="checklist-item">2x Open Questions</label>
+        <label for="ars-task1" class="checklist-item">Rapport & Explore - Listen!</label>
         <div class="example-text">How have you been finding your studies recently? What aspects have been most challenging for you?</div>
         
         <input type="checkbox" id="ars-task2" class="toggle">
@@ -670,7 +742,7 @@
         <div class="example-text">Thinking back to why you started this course, how does completing your qualification connect to your longer-term goals?</div>
         
         <input type="checkbox" id="ars-task5" class="toggle objection">
-        <label for="ars-task5" class="checklist-item">Objection</label>
+        <label for="ars-task5" class="checklist-item">Handle objection & Ask again</label>
         <div class="sub-checklist">
           <input type="checkbox" id="ars-ob-sub1" class="toggle">
           <label for="ars-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
@@ -734,16 +806,24 @@
         <button id="placement-examples-btn" class="button" onclick="toggleExamples('checklist-placement-start')">Show Examples</button>
       </div>
       <div class="checklist main-checklist">
+        <input type="checkbox" id="ps-greeting" class="toggle">
+        <label for="ps-greeting" class="checklist-item greeting-item">Greeting</label>
+        <div class="example-text greeting-example">Hi its ____, your Student Success Advisor from ____, how are you?</div>
+        
         <input type="checkbox" id="ps-compliance" class="toggle">
         <label for="ps-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
         <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
         
+        <input type="checkbox" id="ps-purpose" class="toggle">
+        <label for="ps-purpose" class="checklist-item">Define purpose of call</label>
+        <div class="example-text">I wanted to discuss your upcoming placement opportunity, ensure you're prepared, and see if there are any specific areas where you might need support.</div>
+        
         <input type="checkbox" id="ps-task1" class="toggle">
-        <label for="ps-task1" class="checklist-item">2x Open Questions</label>
+        <label for="ps-task1" class="checklist-item">Rapport & Explore - Listen!</label>
         <div class="example-text">How are you feeling about your upcoming placement? What aspects are you most looking forward to or concerned about?</div>
         
         <input type="checkbox" id="ps-task2" class="toggle">
-        <label for="ps-task2" class="checklist-item">Value Add Item</label>
+        <label for="ps-task2" class="checklist-item">Best support resource for them?</label>
         <div class="example-text">Which area would be most helpful for us to help with: CV Creation, Personal Statement Writing, Police Check & WWCC or Finding Referrals?</div>
         
         <input type="checkbox" id="ps-task3" class="toggle">
@@ -844,21 +924,77 @@
         });
       }
       
-      // Initialize compliance toggle based on saved preference
-      document.addEventListener('DOMContentLoaded', function() {
-        const savedMode = localStorage.getItem('complianceMode');
-        const toggle = document.getElementById('compliance-toggle');
-        const status = document.getElementById('toggle-status');
+      // Greeting toggle functionality
+      function toggleGreeting() {
+        const toggle = document.getElementById('greeting-toggle');
+        const status = document.getElementById('greeting-toggle-status');
+        const isOn = toggle.checked;
         
-        if (savedMode === 'on') {
-          toggle.checked = true;
-          status.textContent = 'On';
+        // Update toggle status text
+        status.textContent = isOn ? 'On' : 'Off';
+        
+        // Store preference in localStorage
+        localStorage.setItem('greetingMode', isOn ? 'on' : 'off');
+        
+        // Apply or remove the greeting-visible class to all checklist containers
+        document.querySelectorAll('.checklist, .page.container').forEach(function(checklist) {
+          if (isOn) {
+            checklist.classList.add('greeting-visible');
+            
+            // If examples are visible in this container, also show greeting examples
+            if (checklist.classList.contains('examples-visible')) {
+              checklist.querySelectorAll('.example-text.greeting-example').forEach(function(example) {
+                example.classList.add('show-greeting');
+              });
+            }
+          } else {
+            checklist.classList.remove('greeting-visible');
+            
+            // Hide greeting examples
+            checklist.querySelectorAll('.example-text.greeting-example').forEach(function(example) {
+              example.classList.remove('show-greeting');
+            });
+          }
+        });
+      }
+      
+      // Initialize toggle based on saved preference
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedComplianceMode = localStorage.getItem('complianceMode');
+        const complianceToggle = document.getElementById('compliance-toggle');
+        const complianceStatus = document.getElementById('toggle-status');
+        
+        if (savedComplianceMode === 'on') {
+          complianceToggle.checked = true;
+          complianceStatus.textContent = 'On';
           document.querySelectorAll('.checklist').forEach(function(checklist) {
             checklist.classList.add('compliance-visible');
           });
         } else {
-          toggle.checked = false;
-          status.textContent = 'Off';
+          complianceToggle.checked = false;
+          complianceStatus.textContent = 'Off';
+        }
+        
+        const savedGreetingMode = localStorage.getItem('greetingMode');
+        const greetingToggle = document.getElementById('greeting-toggle');
+        const greetingStatus = document.getElementById('greeting-toggle-status');
+        
+        if (savedGreetingMode === 'on') {
+          greetingToggle.checked = true;
+          greetingStatus.textContent = 'On';
+          document.querySelectorAll('.checklist').forEach(function(checklist) {
+            checklist.classList.add('greeting-visible');
+            
+            // If examples are visible in this container, also show greeting examples
+            if (checklist.classList.contains('examples-visible')) {
+              checklist.querySelectorAll('.example-text.greeting-example').forEach(function(example) {
+                example.classList.add('show-greeting');
+              });
+            }
+          });
+        } else {
+          greetingToggle.checked = false;
+          greetingStatus.textContent = 'Off';
         }
       });
 
@@ -870,12 +1006,27 @@
         prefix = prefix.split('-')[0]; // Get just the first part (e.g., 'sales' from 'sales-start')
         const toggleBtn = document.getElementById(prefix + '-examples-btn');
         
+        // Check if greeting mode is on
+        const greetingModeOn = document.getElementById('greeting-toggle').checked;
+        
         if (container.classList.contains('examples-visible')) {
           container.classList.remove('examples-visible');
           toggleBtn.textContent = 'Show Examples';
+          
+          // Remove the show-greeting class from all greeting examples in this container
+          container.querySelectorAll('.example-text.greeting-example').forEach(function(example) {
+            example.classList.remove('show-greeting');
+          });
         } else {
           container.classList.add('examples-visible');
           toggleBtn.textContent = 'Hide Examples';
+          
+          // If greeting mode is on, add the show-greeting class to all greeting examples in this container
+          if (greetingModeOn) {
+            container.querySelectorAll('.example-text.greeting-example').forEach(function(example) {
+              example.classList.add('show-greeting');
+            });
+          }
         }
       }
     </script>

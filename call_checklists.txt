@@ -76,7 +76,7 @@ CALL CENTER CHECKLISTS
 □ Book vCita / get Good Times to Call & Advise When Calling Next
    Example: "I'll check in with you on [date] to see how you're going with the enrollment process and if you need any additional support."
 
-3. WELCOME CALL
+3. WELCOME CALL (1ST CALL)
 --------------
 □ Compliance: Recording | Security
    Example: "Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?"
