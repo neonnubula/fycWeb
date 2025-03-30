@@ -282,6 +282,61 @@
         <a class="button" href="#checklist-at-risk-start">At-Risk Call</a>
         <a class="button" href="#checklist-placement-start">Placement Call</a>
       </div>
+      
+      <div style="margin-top: 30px;">
+        <a href="#instructions">Instructions on how to use this app</a>
+      </div>
+      
+      <div style="margin-top: 15px;">
+        <a href="https://forms.office.com/r/E7qCFWg96q" target="_blank">Feedback for prompts, examples & call types</a>
+      </div>
+      
+      <div style="margin-top: 15px;">
+        <a href="https://forms.office.com/r/V2FeCjdHzT" target="_blank">Feedback for app functionality, ideas and problems</a>
+      </div>
+    </div>
+    
+    <!-- Instructions Page -->
+    <div id="instructions" class="page container">
+      <h1>Instructions</h1>
+      <h2>How to Use This App</h2>
+      
+      <div style="text-align: left; margin: 20px 0;">
+        <h3>Getting Started</h3>
+        <p>This app helps you manage different types of call scripts with interactive checklists. Each call type has its own checklist with steps to follow.</p>
+        
+        <h3>Toggle Features</h3>
+        <ul>
+          <li><strong>Greeting Mode:</strong> When turned ON, adds a greeting item to the beginning of each checklist.</li>
+          <li><strong>Compliance Mode:</strong> When turned ON, adds compliance items for recording and security verification.</li>
+        </ul>
+        
+        <h3>Using Checklists</h3>
+        <ul>
+          <li>Click on any blue item to mark it as completed (turns green).</li>
+          <li>Click "Show Examples" to see sample scripts for each item.</li>
+          <li>Some items like "Handle objection & Ask again" have sub-menus that appear when clicked.</li>
+          <li>Each call type has a Call/Voicemail toggle to switch between views.</li>
+        </ul>
+        
+        <h3>Navigation</h3>
+        <ul>
+          <li>Use the "Back" or "Home" buttons to return to the main menu.</li>
+          <li>Going back to Home will reset all checkmarks.</li>
+        </ul>
+        
+        <h3>Tips</h3>
+        <ul>
+          <li>The app saves your Greeting and Compliance mode preferences between sessions.</li>
+          <li>Different call types have specialized scripts tailored for specific situations.</li>
+          <li>Examples provide guidance but can be adjusted to fit your personal style and the specific student situation.</li>
+          <li>For optimal use, open this app in its own browser window and make it as thin as possible. You can use zoom in/out to adjust the size and take up minimal screen space.</li>
+        </ul>
+      </div>
+      
+      <div class="navigation">
+        <a class="button" href="#home" onclick="resetCheckboxes()">Back to Home</a>
+      </div>
     </div>
     
     <!-- Checklist for Sales Start Call -->
@@ -523,6 +578,10 @@
       
       <!-- Voicemail sub-menu -->
       <div id="introduction-voicemail-sub" class="voicemail-sub">
+        <div class="voicemail-script" style="margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 4px; border-left: 4px solid #007AFF; text-align: left;">
+          <p><strong>Template:</strong></p>
+          <p>"Hi it's ____, your Student Success Advisor from ______, I'm calling to congratulate and welcome you to the program, and to cover some important next steps for your studies. I have booked in to call you on ____ and _____, you will receive an email and can change the booking time or you can call me today until ____ on ______"</p>
+        </div>
         <div class="checklist">
           <input type="checkbox" id="is-vm-task1" class="toggle">
           <label for="is-vm-task1" class="checklist-item">Purpose</label>
@@ -592,6 +651,10 @@
       
       <!-- Voicemail sub-menu -->
       <div id="followup-voicemail-sub" class="voicemail-sub">
+        <div class="voicemail-script" style="margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 4px; border-left: 4px solid #007AFF; text-align: left;">
+          <p><strong>Template:</strong></p>
+          <p>"Hi its ____, your Student Success Advisor from _____, I'm calling today to check-in how you are and how you are doing with your studies, I will be calling again in the next study block but please reach out before then to give me an update and go over anything you need on ______"</p>
+        </div>
         <div class="checklist">
           <input type="checkbox" id="fs-vm-task1" class="toggle">
           <label for="fs-vm-task1" class="checklist-item">Purpose</label>
@@ -665,6 +728,10 @@
       
       <!-- Voicemail sub-menu -->
       <div id="support-voicemail-sub" class="voicemail-sub">
+        <div class="voicemail-script" style="margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 4px; border-left: 4px solid #007AFF; text-align: left;">
+          <p><strong>Template:</strong></p>
+          <p>"Hi it's ______, your Student Success Advisor from _____, we have a call booked at this time, may you please call me back on _______ today, I am here until _____"</p>
+        </div>
         <div class="checklist">
           <input type="checkbox" id="sup-vm-task1" class="toggle">
           <label for="sup-vm-task1" class="checklist-item">Purpose</label>
@@ -734,6 +801,10 @@
       
       <!-- Voicemail sub-menu -->
       <div id="at-risk-voicemail-sub" class="voicemail-sub">
+        <div class="voicemail-script" style="margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 4px; border-left: 4px solid #007AFF; text-align: left;">
+          <p><strong>Template:</strong></p>
+          <p>"Hi it's ____, your Student Success Advisor from ______, I'm calling regarding your _____, it is important we get an update and you may wish to use our support,  I have booked in to call you on ____ and _____, you will receive an email and can change the booking time or you can call me today until ____ on ______"</p>
+        </div>
         <div class="checklist">
           <input type="checkbox" id="ars-vm-task1" class="toggle">
           <label for="ars-vm-task1" class="checklist-item">Purpose</label>
@@ -774,19 +845,19 @@
         
         <input type="checkbox" id="ps-purpose" class="toggle">
         <label for="ps-purpose" class="checklist-item">Define reason for call</label>
-        <div class="example-text">I wanted to discuss your upcoming placement opportunity, ensure you're prepared, and see if there are any specific areas where you might need support.</div>
+        <div class="example-text">The reason I need to have a call with you today is for placement, specifically your ________, before we jump into that....</div>
         
         <input type="checkbox" id="ps-task1" class="toggle">
         <label for="ps-task1" class="checklist-item">Rapport & Explore - Listen!</label>
-        <div class="example-text">How are you feeling about your upcoming placement? What aspects are you most looking forward to or concerned about?</div>
-        
-        <input type="checkbox" id="ps-task2" class="toggle">
-        <label for="ps-task2" class="checklist-item">Best support resource for them?</label>
-        <div class="example-text">Which area would be most helpful for us to help with: CV Creation, Personal Statement Writing, Police Check & WWCC or Finding Referrals?</div>
+        <div class="example-text">"How much do you know about _____?" | "What are you hoping to get most out of doing a placement?"</div>
         
         <input type="checkbox" id="ps-task3" class="toggle">
-        <label for="ps-task3" class="checklist-item">Additional Support Call (if required)</label>
-        <div class="example-text">So I can follow-up on the support/resources given for ______, lets book in a call on _______</div>
+        <label for="ps-task3" class="checklist-item">Reason for Call: Update/hours/Check-in</label>
+        <div class="example-text">Cover the main reason for the call</div>
+        
+        <input type="checkbox" id="ps-task2" class="toggle">
+        <label for="ps-task2" class="checklist-item">Set expectations for placement</label>
+        <div class="example-text">Document deadlines | Placement sources interview opportunities, student secures placement from there | Self-manage their work and academic load during placement</div>
         
         <input type="checkbox" id="ps-task4" class="toggle">
         <label for="ps-task4" class="checklist-item">Anything else?</label>
@@ -803,6 +874,10 @@
       
       <!-- Voicemail sub-menu -->
       <div id="placement-voicemail-sub" class="voicemail-sub">
+        <div class="voicemail-script" style="margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 4px; border-left: 4px solid #007AFF; text-align: left;">
+          <p><strong>Template:</strong></p>
+          <p>"Hi it's ____, your Student Success Advisor from ______, I'm calling regarding your Placement _____, it is important we are able to reach you about this, I have booked in to call you on ____ and _____, you will receive an email and can change the booking time or you can call me today until ____ on ______"</p>
+        </div>
         <div class="checklist">
           <input type="checkbox" id="ps-vm-task1" class="toggle">
           <label for="ps-vm-task1" class="checklist-item">Purpose</label>
