@@ -214,8 +214,8 @@
         display: none !important;
       }
       
-      /* Show compliance examples only when compliance is on AND examples are visible */
-      .compliance-visible.examples-visible .example-text.compliance-example {
+      /* Show compliance examples when both compliance is on AND examples are visible */
+      .examples-visible .example-text.compliance-example.show-compliance {
         display: block !important;
       }
       
@@ -296,56 +296,52 @@
         
         <input type="checkbox" id="ss-compliance" class="toggle">
         <label for="ss-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
-        <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
+        <div class="example-text compliance-example">Call is recorded | Name & Student ID/Personal Email</div>
         
         <input type="checkbox" id="ss-purpose" class="toggle">
-        <label for="ss-purpose" class="checklist-item">Define purpose of call</label>
-        <div class="example-text">I wanted to check in with you today to discuss your enrollment for the upcoming study period and make sure you have all the support you need.</div>
+        <label for="ss-purpose" class="checklist-item">Define reason for call</label>
+        <div class="example-text">The timing for today's call is to complete your unit enrolments, so I will make sure we do that, but first, I'd like to hear about how your studies are going</div>
         
         <input type="checkbox" id="ss-task1" class="toggle">
         <label for="ss-task1" class="checklist-item">Rapport & Explore - Listen!</label>
-        <div class="example-text">How have you been finding your current studies? What aspects of the course have you enjoyed the most so far?</div>
-        
-        <input type="checkbox" id="ss-task3" class="toggle">
-        <label for="ss-task3" class="checklist-item">Best support resource for them?</label>
-        <div class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
+        <div class="example-text">What's going on in your world? | How has it been going since we spoke last?</div>
         
         <input type="checkbox" id="ss-task4" class="toggle">
         <label for="ss-task4" class="checklist-item">Ask to pre-enrol now on the call</label>
-        <div class="example-text">Given your progress so far and your career goals, enrolling in the next unit would keep your momentum going. Would you like to get that sorted today?</div>
+        <div class="example-text">it's time to get enrolled for the whole year, I will guide you through it now, are you at your computer and ready to enrol? (if no: "that's okay we can do it on your phone instead")</div>
         
         <!-- Objection (with sub-checklist) -->
         <input type="checkbox" id="ss-task5" class="toggle objection">
         <label for="ss-task5" class="checklist-item">Handle objection & Ask again</label>
         <div class="sub-checklist">
           <input type="checkbox" id="ss-ob-sub1" class="toggle">
-          <label for="ss-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
-          <div class="example-text">I hear what you're saying about [time constraints/financial concerns/course difficulty]. That's completely understandable.</div>
+          <label for="ss-ob-sub1" class="checklist-item">Listen & Label the Emotion</label>
+          <div class="example-text">It sounds like you are (emotion) about the impact of (objection) on your ability to study</div>
           
           <input type="checkbox" id="ss-ob-sub2" class="toggle">
-          <label for="ss-ob-sub2" class="checklist-item">Clarify &amp; Question</label>
-          <div class="example-text">Could you share a bit more about what specifically is making it difficult to continue with your studies right now?</div>
+          <label for="ss-ob-sub2" class="checklist-item">Clarify, Question & Context</label>
+          <div class="example-text">Sorry, I'm confused, previously you let me know you were doing this to become a _____ because of _____, I certainly want to help you to _______, may I please ask a challenging question and you don't have to answer but how does (objection) compare to that goal?</div>
           
           <input type="checkbox" id="ss-ob-sub3" class="toggle">
-          <label for="ss-ob-sub3" class="checklist-item">Address the Objection</label>
-          <div class="example-text">Many of our students have faced similar challenges. We've found that [specific solution] has helped them continue their studies while managing those concerns.</div>
+          <label for="ss-ob-sub3" class="checklist-item">Address the Objection (Feel/Felt/Found)</label>
+          <div class="example-text">It looks like you feel (emotion) about (objection). Many students have felt the same way about studying and (objection), but they have found they have been able to successfully continue by ______</div>
           
           <input type="checkbox" id="ss-ob-sub4" class="toggle">
-          <label for="ss-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
-          <div class="example-text">Does that approach sound like it might work for your situation? Is there anything else we should consider to help you continue your studies?</div>
+          <label for="ss-ob-sub4" class="checklist-item">Confirm & Close</label>
+          <div class="example-text">Before we move on, may I please check that now, you are happy you are capable to manage (objection) and your studies?</div>
         </div>
         
         <input type="checkbox" id="ss-task7" class="toggle">
         <label for="ss-task7" class="checklist-item">Anything else?</label>
-        <div class="example-text">We have covered the items I wanted to make sure to go over, is there anything else you'd like to ask or go over while you have me on the phone?</div>
+        <div class="example-text">We have covered the things I needed to ask, but while you have me on the phone, is there anything you wish to ask or let us know?</div>
         
         <input type="checkbox" id="ss-task8" class="toggle">
         <label for="ss-task8" class="checklist-item">Summarise Call</label>
-        <div class="example-text">Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner.</div>
+        <div class="example-text">Okay, today we covered (items discussed), after the call I am going to (your next steps) and you are going to (their next steps)</div>
         
         <input type="checkbox" id="ss-task9" class="toggle">
-        <label for="ss-task9" class="checklist-item">Book vCita / get Good Times to Call & Advise When Calling Next</label>
-        <div class="example-text">I'll check in with you on [date] to see how you're going with the enrollment process and if you need any additional support.</div>
+        <label for="ss-task9" class="checklist-item">Book vCita OR plan next call</label>
+        <div class="example-text">For when I call in the next (time/studyblock) would you prefer a set time or to give me the best times to reach you?</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -390,23 +386,15 @@
         
         <input type="checkbox" id="rs-compliance" class="toggle">
         <label for="rs-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
-        <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
+        <div class="example-text compliance-example">Call is recorded | Name & Student ID/Personal Email</div>
         
         <input type="checkbox" id="rs-purpose" class="toggle">
-        <label for="rs-purpose" class="checklist-item">Define purpose of call</label>
+        <label for="rs-purpose" class="checklist-item">Define reason for call</label>
         <div class="example-text">I'm reaching out today to see how you've been since completing your last unit and to discuss your options for continuing your studies with us.</div>
         
         <input type="checkbox" id="rs-task1" class="toggle">
         <label for="rs-task1" class="checklist-item">Rapport & Explore - Listen!</label>
         <div class="example-text">How have things been since you completed your last unit? What have you been focusing on during your study break?</div>
-        
-        <input type="checkbox" id="rs-task2" class="toggle">
-        <label for="rs-task2" class="checklist-item">Uncover the Gap</label>
-        <div class="example-text">What were your original goals when you started this qualification? How would completing the course help you achieve those goals?</div>
-        
-        <input type="checkbox" id="rs-task3" class="toggle">
-        <label for="rs-task3" class="checklist-item">Best support resource for them?</label>
-        <div class="example-text">What area that we can help with would be most beneficial to you? Time Saving Technology, Writing Help, Research Help or something else?</div>
         
         <input type="checkbox" id="rs-task4" class="toggle">
         <label for="rs-task4" class="checklist-item">Ask to pre-enrol now on the call</label>
@@ -435,15 +423,15 @@
         
         <input type="checkbox" id="rs-task7" class="toggle">
         <label for="rs-task7" class="checklist-item">Anything else?</label>
-        <div class="example-text">We have covered the items I wanted to make sure to go over, is there anything else you'd like to ask or go over while you have me on the phone?</div>
+        <div class="example-text">We have covered the things I needed to ask, but while you have me on the phone, is there anything you wish to ask or let us know?</div>
         
         <input type="checkbox" id="rs-task8" class="toggle">
         <label for="rs-task8" class="checklist-item">Summarise Call</label>
-        <div class="example-text">Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner.</div>
+        <div class="example-text">Okay, today we covered (items discussed), after the call I am going to (your next steps) and you are going to (their next steps)</div>
         
         <input type="checkbox" id="rs-task9" class="toggle">
-        <label for="rs-task9" class="checklist-item">Book vCita / get Good Times to Call & Advise When Calling Next</label>
-        <div class="example-text">I'll check in with you on [date] to see how you're going with the enrollment process and if you need any additional support.</div>
+        <label for="rs-task9" class="checklist-item">Book vCita OR plan next call</label>
+        <div class="example-text">For when I call in the next (time/studyblock) would you prefer a set time or to give me the best times to reach you?</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -488,7 +476,7 @@
         
         <input type="checkbox" id="is-compliance" class="toggle">
         <label for="is-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
-        <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
+        <div class="example-text compliance-example">Call is recorded | Name & Student ID/Personal Email</div>
         
         <input type="checkbox" id="is-purpose" class="toggle">
         <label for="is-purpose" class="checklist-item">Define purpose of call</label>
@@ -512,15 +500,15 @@
         
         <input type="checkbox" id="is-task5" class="toggle">
         <label for="is-task5" class="checklist-item">Anything else?</label>
-        <div class="example-text">We have covered the items I wanted to make sure to go over, is there anything else you'd like to ask or go over while you have me on the phone?</div>
+        <div class="example-text">We have covered the things I needed to ask, but while you have me on the phone, is there anything you wish to ask or let us know?</div>
         
         <input type="checkbox" id="is-task6" class="toggle">
         <label for="is-task6" class="checklist-item">Summarise Call</label>
-        <div class="example-text">Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner.</div>
+        <div class="example-text">Okay, today we covered (items discussed), after the call I am going to (your next steps) and you are going to (their next steps)</div>
         
         <input type="checkbox" id="is-task7" class="toggle">
-        <label for="is-task7" class="checklist-item">Book vCita / get Good Times to Call & Advise When Calling Next</label>
-        <div class="example-text">I'll check in with you again on [date] to see how you're settling into your studies and if you need any additional support.</div>
+        <label for="is-task7" class="checklist-item">Book vCita OR plan next call</label>
+        <div class="example-text">For when I call in the next (time/studyblock) would you prefer a set time or to give me the best times to reach you?</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -561,10 +549,10 @@
         
         <input type="checkbox" id="fs-compliance" class="toggle">
         <label for="fs-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
-        <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
+        <div class="example-text compliance-example">Call is recorded | Name & Student ID/Personal Email</div>
         
         <input type="checkbox" id="fs-purpose" class="toggle">
-        <label for="fs-purpose" class="checklist-item">Define purpose of call</label>
+        <label for="fs-purpose" class="checklist-item">Define reason for call</label>
         <div class="example-text">I'm checking in with you today to see how your studies are going and to make sure you have all the support and resources you need to be successful.</div>
         
         <input type="checkbox" id="fs-task1" class="toggle">
@@ -581,15 +569,15 @@
         
         <input type="checkbox" id="fs-task5" class="toggle">
         <label for="fs-task5" class="checklist-item">Anything else?</label>
-        <div class="example-text">We have covered the items I wanted to make sure to go over, is there anything else you'd like to ask or go over while you have me on the phone?</div>
+        <div class="example-text">We have covered the things I needed to ask, but while you have me on the phone, is there anything you wish to ask or let us know?</div>
         
         <input type="checkbox" id="fs-task6" class="toggle">
         <label for="fs-task6" class="checklist-item">Summarise Call</label>
-        <div class="example-text">Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner.</div>
+        <div class="example-text">Okay, today we covered (items discussed), after the call I am going to (your next steps) and you are going to (their next steps)</div>
         
         <input type="checkbox" id="fs-task7" class="toggle">
-        <label for="fs-task7" class="checklist-item">Book vCita / get Good Times to Call & Advise When Calling Next</label>
-        <div class="example-text">I'll check in with you again on [date] to see how you're progressing and if the resources we discussed have been helpful.</div>
+        <label for="fs-task7" class="checklist-item">Book vCita OR plan next call</label>
+        <div class="example-text">For when I call in the next (time/studyblock) would you prefer a set time or to give me the best times to reach you?</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -630,10 +618,10 @@
         
         <input type="checkbox" id="sup-compliance" class="toggle">
         <label for="sup-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
-        <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
+        <div class="example-text compliance-example">Call is recorded | Name & Student ID/Personal Email</div>
         
         <input type="checkbox" id="sup-purpose" class="toggle">
-        <label for="sup-purpose" class="checklist-item">Define purpose of call</label>
+        <label for="sup-purpose" class="checklist-item">Define reason for call</label>
         <div class="example-text">I'm following up on our previous conversation about [specific support area] to see how things are going and if you need any additional assistance.</div>
         
         <input type="checkbox" id="sup-task1" class="toggle">
@@ -673,12 +661,16 @@
         <div class="example-text">Are there any new challenges or areas where you feel you need additional support?</div>
         
         <input type="checkbox" id="sup-task6" class="toggle">
-        <label for="sup-task6" class="checklist-item">Summarise Call</label>
-        <div class="example-text">Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner.</div>
+        <label for="sup-task6" class="checklist-item">Anything else?</label>
+        <div class="example-text">We have covered the things I needed to ask, but while you have me on the phone, is there anything you wish to ask or let us know?</div>
         
         <input type="checkbox" id="sup-task7" class="toggle">
-        <label for="sup-task7" class="checklist-item">Book vCita / get Good Times to Call & Advise When Calling Next</label>
-        <div class="example-text">Let's schedule our next check-in for [date] to see how these strategies are working for you.</div>
+        <label for="sup-task7" class="checklist-item">Summarise Call</label>
+        <div class="example-text">Okay, today we covered (items discussed), after the call I am going to (your next steps) and you are going to (their next steps)</div>
+        
+        <input type="checkbox" id="sup-task8" class="toggle">
+        <label for="sup-task8" class="checklist-item">Book vCita OR plan next call</label>
+        <div class="example-text">For when I call in the next (time/studyblock) would you prefer a set time or to give me the best times to reach you?</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -719,10 +711,10 @@
         
         <input type="checkbox" id="ars-compliance" class="toggle">
         <label for="ars-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
-        <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
+        <div class="example-text compliance-example">Call is recorded | Name & Student ID/Personal Email</div>
         
         <input type="checkbox" id="ars-purpose" class="toggle">
-        <label for="ars-purpose" class="checklist-item">Define purpose of call</label>
+        <label for="ars-purpose" class="checklist-item">Define reason for call</label>
         <div class="example-text">I noticed some challenges with your recent course progress, and I wanted to check in to see how you're doing and discuss how we might support you moving forward.</div>
         
         <input type="checkbox" id="ars-task1" class="toggle">
@@ -765,13 +757,17 @@
         <label for="ars-task6" class="checklist-item">Additional Support Call (if required)</label>
         <div class="example-text">So I can follow-up on the support/resources given for ______, lets book in a call on _______</div>
         
+        <input type="checkbox" id="ars-task7" class="toggle">
+        <label for="ars-task7" class="checklist-item">Anything else?</label>
+        <div class="example-text">We have covered the things I needed to ask, but while you have me on the phone, is there anything you wish to ask or let us know?</div>
+        
         <input type="checkbox" id="ars-task8" class="toggle">
         <label for="ars-task8" class="checklist-item">Summarise Call</label>
-        <div class="example-text">Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner.</div>
+        <div class="example-text">Okay, today we covered (items discussed), after the call I am going to (your next steps) and you are going to (their next steps)</div>
         
         <input type="checkbox" id="ars-task9" class="toggle">
-        <label for="ars-task9" class="checklist-item">Book vCita / get Good Times to Call & Advise When Calling Next</label>
-        <div class="example-text">I'd like to check in with you again on [date] to see how these strategies are working and provide any additional support you might need.</div>
+        <label for="ars-task9" class="checklist-item">Book vCita OR plan next call</label>
+        <div class="example-text">For when I call in the next (time/studyblock) would you prefer a set time or to give me the best times to reach you?</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -812,10 +808,10 @@
         
         <input type="checkbox" id="ps-compliance" class="toggle">
         <label for="ps-compliance" class="checklist-item compliance-item">Compliance: Recording | Security</label>
-        <div class="example-text compliance-example">Hi, this call is being recorded for quality and training purposes. Can I confirm I'm speaking with [student name]?</div>
+        <div class="example-text compliance-example">Call is recorded | Name & Student ID/Personal Email</div>
         
         <input type="checkbox" id="ps-purpose" class="toggle">
-        <label for="ps-purpose" class="checklist-item">Define purpose of call</label>
+        <label for="ps-purpose" class="checklist-item">Define reason for call</label>
         <div class="example-text">I wanted to discuss your upcoming placement opportunity, ensure you're prepared, and see if there are any specific areas where you might need support.</div>
         
         <input type="checkbox" id="ps-task1" class="toggle">
@@ -836,11 +832,11 @@
         
         <input type="checkbox" id="ps-task5" class="toggle">
         <label for="ps-task5" class="checklist-item">Summarise Call</label>
-        <div class="example-text">Ok, we have covered ____, ____ & ____, I will now ______, you will now ______, and our next call is ____ but please feel free to reach out sooner.</div>
+        <div class="example-text">Okay, today we covered (items discussed), after the call I am going to (your next steps) and you are going to (their next steps)</div>
         
         <input type="checkbox" id="ps-task6" class="toggle">
-        <label for="ps-task6" class="checklist-item">Book vCita / get Good Times to Call & Advise When Calling Next</label>
-        <div class="example-text">I'll check in with you again on [date] to see how your placement preparation is going and if you need any additional support.</div>
+        <label for="ps-task6" class="checklist-item">Book vCita OR plan next call</label>
+        <div class="example-text">For when I call in the next (time/studyblock) would you prefer a set time or to give me the best times to reach you?</div>
       </div>
       
       <!-- Voicemail sub-menu -->
@@ -908,18 +904,24 @@
         const status = document.getElementById('toggle-status');
         const isOn = toggle.checked;
         
-        // Update toggle status text
         status.textContent = isOn ? 'On' : 'Off';
-        
-        // Store preference in localStorage
         localStorage.setItem('complianceMode', isOn ? 'on' : 'off');
         
-        // Apply or remove the compliance-visible class to all checklist containers
         document.querySelectorAll('.checklist').forEach(function(checklist) {
           if (isOn) {
             checklist.classList.add('compliance-visible');
+            
+            if (checklist.classList.contains('examples-visible')) {
+              checklist.querySelectorAll('.example-text.compliance-example').forEach(function(example) {
+                example.classList.add('show-compliance');
+              });
+            }
           } else {
             checklist.classList.remove('compliance-visible');
+            
+            checklist.querySelectorAll('.example-text.compliance-example').forEach(function(example) {
+              example.classList.remove('show-compliance');
+            });
           }
         });
       }
@@ -930,18 +932,13 @@
         const status = document.getElementById('greeting-toggle-status');
         const isOn = toggle.checked;
         
-        // Update toggle status text
         status.textContent = isOn ? 'On' : 'Off';
-        
-        // Store preference in localStorage
         localStorage.setItem('greetingMode', isOn ? 'on' : 'off');
         
-        // Apply or remove the greeting-visible class to all checklist containers
         document.querySelectorAll('.checklist, .page.container').forEach(function(checklist) {
           if (isOn) {
             checklist.classList.add('greeting-visible');
             
-            // If examples are visible in this container, also show greeting examples
             if (checklist.classList.contains('examples-visible')) {
               checklist.querySelectorAll('.example-text.greeting-example').forEach(function(example) {
                 example.classList.add('show-greeting');
@@ -950,7 +947,6 @@
           } else {
             checklist.classList.remove('greeting-visible');
             
-            // Hide greeting examples
             checklist.querySelectorAll('.example-text.greeting-example').forEach(function(example) {
               example.classList.remove('show-greeting');
             });
@@ -985,7 +981,6 @@
           document.querySelectorAll('.checklist').forEach(function(checklist) {
             checklist.classList.add('greeting-visible');
             
-            // If examples are visible in this container, also show greeting examples
             if (checklist.classList.contains('examples-visible')) {
               checklist.querySelectorAll('.example-text.greeting-example').forEach(function(example) {
                 example.classList.add('show-greeting');
@@ -1001,30 +996,37 @@
       // Function to toggle examples visibility
       function toggleExamples(containerId) {
         const container = document.getElementById(containerId);
-        // Get the correct button ID
         let prefix = containerId.replace('checklist-', '');
-        prefix = prefix.split('-')[0]; // Get just the first part (e.g., 'sales' from 'sales-start')
+        prefix = prefix.split('-')[0];
         const toggleBtn = document.getElementById(prefix + '-examples-btn');
         
-        // Check if greeting mode is on
         const greetingModeOn = document.getElementById('greeting-toggle').checked;
+        const complianceModeOn = document.getElementById('compliance-toggle').checked;
         
         if (container.classList.contains('examples-visible')) {
           container.classList.remove('examples-visible');
           toggleBtn.textContent = 'Show Examples';
           
-          // Remove the show-greeting class from all greeting examples in this container
           container.querySelectorAll('.example-text.greeting-example').forEach(function(example) {
             example.classList.remove('show-greeting');
+          });
+          
+          container.querySelectorAll('.example-text.compliance-example').forEach(function(example) {
+            example.classList.remove('show-compliance');
           });
         } else {
           container.classList.add('examples-visible');
           toggleBtn.textContent = 'Hide Examples';
           
-          // If greeting mode is on, add the show-greeting class to all greeting examples in this container
           if (greetingModeOn) {
             container.querySelectorAll('.example-text.greeting-example').forEach(function(example) {
               example.classList.add('show-greeting');
+            });
+          }
+          
+          if (complianceModeOn) {
+            container.querySelectorAll('.example-text.compliance-example').forEach(function(example) {
+              example.classList.add('show-compliance');
             });
           }
         }
