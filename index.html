@@ -272,7 +272,7 @@
         <a class="button" href="#checklist-reengagement-start">Reengagement Call</a>
         <a class="button" href="#checklist-introduction-start">Welcome Call (1st Call)</a>
         <a class="button" href="#checklist-followup-start">CS Call</a>
-        <a class="button" href="#checklist-support-start">Support Call</a>
+        <a class="button" href="#checklist-support-start">Support Call (Regular)</a>
         <a class="button" href="#checklist-at-risk-start">At-Risk Call</a>
         <a class="button" href="#checklist-placement-start">Placement Call</a>
       </div>
@@ -565,7 +565,7 @@
         
         <input type="checkbox" id="fs-task3" class="toggle">
         <label for="fs-task3" class="checklist-item">Best support resource for them?</label>
-        <div class="example-text">To help improve your grade, what would be the one area our resources would be most useful? e.g. Time-saving technology, assignment types & writing help, research skills or time management?</div>
+        <div class="example-text">Would it be helpful to continue working on the same (support item), or if you are comfortable with that now, I will send you one new resource; what do you think would have the most impact on you? e.g. Time-saving Technology, assignment types & writing help, research skills, time management.</div>
         
         <input type="checkbox" id="fs-task4" class="toggle">
         <label for="fs-task4" class="checklist-item">Pre-enrol future units?</label>
@@ -607,7 +607,7 @@
     <!-- Checklist for Support Start Call -->
     <div id="checklist-support-start" class="page container call-view-active">
       <h1>Finish your Checklist</h1>
-      <h2>Support Call</h2>
+      <h2>Support Call (Regular)</h2>
       <div class="view-toggle">
         <button id="support-call-btn" class="button active" onclick="toggleView('checklist-support-start', 'call')">Call</button>
         <button id="support-voicemail-btn" class="button" onclick="toggleView('checklist-support-start', 'voicemail')">Voicemail</button>
@@ -626,55 +626,35 @@
         
         <input type="checkbox" id="sup-purpose" class="toggle">
         <label for="sup-purpose" class="checklist-item">Define reason for call</label>
-        <div class="example-text">I'm following up on our previous conversation about [specific support area] to see how things are going and if you need any additional assistance.</div>
+        <div class="example-text">Thank you for having a regular call booking, today I will ask about (previous support item), how your studies are going and then assist with any questions you have</div>
         
         <input type="checkbox" id="sup-task1" class="toggle">
         <label for="sup-task1" class="checklist-item">Rapport & Explore - Listen!</label>
-        <div class="example-text">How have things been since our last conversation? What progress have you made with the challenges we discussed?</div>
+        <div class="example-text">How have things been going since we spoke last? | How have your studies been going since we spoke last?</div>
         
         <input type="checkbox" id="sup-task2" class="toggle">
-        <label for="sup-task2" class="checklist-item">Previous Support?</label>
-        <div class="example-text">Last time we spoke, we discussed [specific support]. How has that been working for you?</div>
+        <label for="sup-task2" class="checklist-item">Follow-up on previous support given</label>
+        <div class="example-text">Last call, you received support for _____; what have you done to implement this since then, and how is it going? | I know last time we talked, you were working on __, how did you go with that?</div>
         
         <input type="checkbox" id="sup-task3" class="toggle">
         <label for="sup-task3" class="checklist-item">Best support resource for them?</label>
-        <div class="example-text">To help improve your grade, what would be the one area our resources would be most useful? e.g. writing research, time-saving technology?</div>
+        <div class="example-text">Would it be helpful to continue working on the same (support item), or if you are comfortable with that now, I will send you one new resource; what do you think would have the most impact on you? e.g. Time-saving Technology, assignment types & writing help, research skills, time management.</div>
         
-        <input type="checkbox" id="sup-task4" class="toggle objection">
-        <label for="sup-task4" class="checklist-item">Handle objection & Ask again</label>
-        <div class="sub-checklist">
-          <input type="checkbox" id="sup-ob-sub1" class="toggle">
-          <label for="sup-ob-sub1" class="checklist-item">Listen &amp; Acknowledge</label>
-          <div class="example-text">I understand your frustration with [specific issue]. That sounds challenging.</div>
-          
-          <input type="checkbox" id="sup-ob-sub2" class="toggle">
-          <label for="sup-ob-sub2" class="checklist-item">Clarify &amp; Question</label>
-          <div class="example-text">Could you tell me more about what specifically is making this difficult for you?</div>
-          
-          <input type="checkbox" id="sup-ob-sub3" class="toggle">
-          <label for="sup-ob-sub3" class="checklist-item">Address the Objection</label>
-          <div class="example-text">Based on what you've shared, here's what we can do to help address this issue...</div>
-          
-          <input type="checkbox" id="sup-ob-sub4" class="toggle">
-          <label for="sup-ob-sub4" class="checklist-item">Confirm &amp; Close</label>
-          <div class="example-text">Does this approach sound like it would help with the challenges you're facing?</div>
-        </div>
-        
-        <input type="checkbox" id="sup-task5" class="toggle">
-        <label for="sup-task5" class="checklist-item">Additional Support Call (if required)</label>
+        <input type="checkbox" id="sup-task4" class="toggle">
+        <label for="sup-task4" class="checklist-item">Additional Support Call (if required)</label>
         <div class="example-text">Are there any new challenges or areas where you feel you need additional support?</div>
         
-        <input type="checkbox" id="sup-task6" class="toggle">
-        <label for="sup-task6" class="checklist-item">Anything else?</label>
+        <input type="checkbox" id="sup-task5" class="toggle">
+        <label for="sup-task5" class="checklist-item">Anything else?</label>
         <div class="example-text">We have covered the things I needed to ask, but while you have me on the phone, is there anything you wish to ask or let us know?</div>
         
-        <input type="checkbox" id="sup-task7" class="toggle">
-        <label for="sup-task7" class="checklist-item">Summarise Call</label>
+        <input type="checkbox" id="sup-task6" class="toggle">
+        <label for="sup-task6" class="checklist-item">Summarise Call</label>
         <div class="example-text">Okay, today we covered (items discussed), after the call I am going to (your next steps) and you are going to (their next steps)</div>
         
-        <input type="checkbox" id="sup-task8" class="toggle">
-        <label for="sup-task8" class="checklist-item">Book vCita OR plan next call</label>
-        <div class="example-text">For when I call in the next (time/studyblock) would you prefer a set time or to give me the best times to reach you?</div>
+        <input type="checkbox" id="sup-task7" class="toggle">
+        <label for="sup-task7" class="checklist-item">Review call frequency & book vCita</label>
+        <div class="example-text">(Remember, as the student improves their capability, they should require less frequent calls) | "Let's confirm the time for our next call in ___ weeks"</div>
       </div>
       
       <!-- Voicemail sub-menu -->
